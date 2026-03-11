@@ -1,4 +1,5 @@
 defmodule MBCCWeb.UserLive.Login do
+  @moduledoc false
   use MBCCWeb, :live_view
 
   alias MBCC.Auth

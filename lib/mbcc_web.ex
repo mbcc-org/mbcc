@@ -23,10 +23,11 @@ defmodule MBCCWeb do
     quote do
       use Phoenix.Router, helpers: false
 
-      # Import common connection and controller functions to use in pipelines
-      import Plug.Conn
       import Phoenix.Controller
       import Phoenix.LiveView.Router
+
+      # Import common connection and controller functions to use in pipelines
+      import Plug.Conn
     end
   end
 
@@ -39,7 +40,6 @@ defmodule MBCCWeb do
   def controller do
     quote do
       use Phoenix.Controller, formats: [:html, :json]
-
       use Gettext, backend: MBCCWeb.Gettext
 
       import Plug.Conn
@@ -82,14 +82,15 @@ defmodule MBCCWeb do
       # Translation
       use Gettext, backend: MBCCWeb.Gettext
 
+      import MBCCWeb.CoreComponents
+
       # HTML escaping functionality
       import Phoenix.HTML
       # Core UI components
-      import MBCCWeb.CoreComponents
+      alias MBCCWeb.Layouts
 
       # Common modules used in templates
       alias Phoenix.LiveView.JS
-      alias MBCCWeb.Layouts
 
       # Routes generation with the ~p sigil
       unquote(verified_routes())

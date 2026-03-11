@@ -4,9 +4,11 @@ defmodule MBCC.Auth do
   """
 
   import Ecto.Query, warn: false
-  alias MBCC.Repo
 
-  alias MBCC.Auth.{User, UserToken, UserNotifier}
+  alias MBCC.Auth.User
+  alias MBCC.Auth.UserNotifier
+  alias MBCC.Auth.UserToken
+  alias MBCC.Repo
 
   ## Database getters
 
@@ -38,8 +40,7 @@ defmodule MBCC.Auth do
       nil
 
   """
-  def get_user_by_email_and_password(email, password)
-      when is_binary(email) and is_binary(password) do
+  def get_user_by_email_and_password(email, password) when is_binary(email) and is_binary(password) do
     user = Repo.get_by(User, email: email)
     if User.valid_password?(user, password), do: user
   end
@@ -91,7 +92,7 @@ defmodule MBCC.Auth do
   def sudo_mode?(user, minutes \\ -20)
 
   def sudo_mode?(%User{authenticated_at: ts}, minutes) when is_struct(ts, DateTime) do
-    DateTime.after?(ts, DateTime.utc_now() |> DateTime.add(minutes, :minute))
+    DateTime.after?(ts, DateTime.add(DateTime.utc_now(), minutes, :minute))
   end
 
   def sudo_mode?(_user, _minutes), do: false
@@ -266,8 +267,7 @@ defmodule MBCC.Auth do
   @doc """
   Delivers the magic link login instructions to the given user.
   """
-  def deliver_login_instructions(%User{} = user, magic_link_url_fun)
-      when is_function(magic_link_url_fun, 1) do
+  def deliver_login_instructions(%User{} = user, magic_link_url_fun) when is_function(magic_link_url_fun, 1) do
     {encoded_token, user_token} = UserToken.build_email_token(user, "login")
     Repo.insert!(user_token)
     UserNotifier.deliver_login_instructions(user, magic_link_url_fun.(encoded_token))

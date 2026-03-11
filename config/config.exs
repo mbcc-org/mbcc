@@ -7,6 +7,45 @@
 # General application configuration
 import Config
 
+# Configure esbuild (the version is required)
+config :esbuild,
+  version: "0.25.4",
+  mbcc: [
+    args:
+      ~w(js/app.js --bundle --target=es2022 --outdir=../priv/static/assets/js --external:/fonts/* --external:/images/* --alias:@=.),
+    cd: Path.expand("../assets", __DIR__),
+    env: %{"NODE_PATH" => [Path.expand("../deps", __DIR__), Mix.Project.build_path()]}
+  ]
+
+# Configure Elixir's Logger
+config :logger, :default_formatter,
+  format: "$time $metadata[$level] $message\n",
+  metadata: [:request_id]
+
+# Configure the mailer
+#
+# By default it uses the "Local" adapter which stores the emails
+# locally. You can see the emails in your browser, at "/dev/mailbox".
+#
+# For production it's recommended to configure a different adapter
+# at the `config/runtime.exs`.
+config :mbcc, MBCC.Mailer, adapter: Swoosh.Adapters.Local
+
+config :mbcc, MBCC.Repo,
+  migration_primary_key: [name: :id, type: :binary_id],
+  migration_timestamps: [type: :utc_datetime]
+
+# Configure the endpoint
+config :mbcc, MBCCWeb.Endpoint,
+  url: [host: "localhost"],
+  adapter: Bandit.PhoenixAdapter,
+  render_errors: [
+    formats: [html: MBCCWeb.ErrorHTML, json: MBCCWeb.ErrorJSON],
+    layout: false
+  ],
+  pubsub_server: MBCC.PubSub,
+  live_view: [signing_salt: "SiYQ7sYJCU/tnLccmB6if3pTbSfXBoxV96N4ozFXnTX7u6SGDim4uOmpltG/5ee3"]
+
 config :mbcc, :scopes,
   user: [
     default: true,
@@ -25,35 +64,8 @@ config :mbcc,
   ecto_repos: [MBCC.Repo],
   generators: [timestamp_type: :utc_datetime, binary_id: true]
 
-# Configure the endpoint
-config :mbcc, MBCCWeb.Endpoint,
-  url: [host: "localhost"],
-  adapter: Bandit.PhoenixAdapter,
-  render_errors: [
-    formats: [html: MBCCWeb.ErrorHTML, json: MBCCWeb.ErrorJSON],
-    layout: false
-  ],
-  pubsub_server: MBCC.PubSub,
-  live_view: [signing_salt: "oFKoQ6nB"]
-
-# Configure the mailer
-#
-# By default it uses the "Local" adapter which stores the emails
-# locally. You can see the emails in your browser, at "/dev/mailbox".
-#
-# For production it's recommended to configure a different adapter
-# at the `config/runtime.exs`.
-config :mbcc, MBCC.Mailer, adapter: Swoosh.Adapters.Local
-
-# Configure esbuild (the version is required)
-config :esbuild,
-  version: "0.25.4",
-  mbcc: [
-    args:
-      ~w(js/app.js --bundle --target=es2022 --outdir=../priv/static/assets/js --external:/fonts/* --external:/images/* --alias:@=.),
-    cd: Path.expand("../assets", __DIR__),
-    env: %{"NODE_PATH" => [Path.expand("../deps", __DIR__), Mix.Project.build_path()]}
-  ]
+# Use Jason for JSON parsing in Phoenix
+config :phoenix, :json_library, Jason
 
 # Configure tailwind (the version is required)
 config :tailwind,
@@ -63,17 +75,10 @@ config :tailwind,
       --input=assets/css/app.css
       --output=priv/static/assets/css/app.css
     ),
+
+    # Import environment specific config. This must remain at the bottom
+    # of this file so it overrides the configuration defined above.
     cd: Path.expand("..", __DIR__)
   ]
 
-# Configure Elixir's Logger
-config :logger, :default_formatter,
-  format: "$time $metadata[$level] $message\n",
-  metadata: [:request_id]
-
-# Use Jason for JSON parsing in Phoenix
-config :phoenix, :json_library, Jason
-
-# Import environment specific config. This must remain at the bottom
-# of this file so it overrides the configuration defined above.
 import_config "#{config_env()}.exs"

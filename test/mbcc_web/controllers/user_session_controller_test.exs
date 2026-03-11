@@ -2,6 +2,7 @@ defmodule MBCCWeb.UserSessionControllerTest do
   use MBCCWeb.ConnCase, async: true
 
   import MBCC.AuthFixtures
+
   alias MBCC.Auth
 
   setup do

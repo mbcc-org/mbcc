@@ -1,9 +1,10 @@
 defmodule MBCCWeb.UserLive.SettingsTest do
   use MBCCWeb.ConnCase, async: true
 
-  alias MBCC.Auth
-  import Phoenix.LiveViewTest
   import MBCC.AuthFixtures
+  import Phoenix.LiveViewTest
+
+  alias MBCC.Auth
 
   describe "Settings page" do
     test "renders settings page", %{conn: conn} do

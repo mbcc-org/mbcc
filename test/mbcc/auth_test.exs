@@ -1,10 +1,11 @@
 defmodule MBCC.AuthTest do
   use MBCC.DataCase
 
-  alias MBCC.Auth
-
   import MBCC.AuthFixtures
-  alias MBCC.Auth.{User, UserToken}
+
+  alias MBCC.Auth
+  alias MBCC.Auth.User
+  alias MBCC.Auth.UserToken
 
   describe "get_user_by_email/1" do
     test "does not return the user if the email does not exist" do
@@ -23,12 +24,12 @@ defmodule MBCC.AuthTest do
     end
 
     test "does not return the user if the password is not valid" do
-      user = user_fixture() |> set_password()
+      user = set_password(user_fixture())
       refute Auth.get_user_by_email_and_password(user.email, "invalid")
     end
 
     test "returns the user if the email and password are valid" do
-      %{id: id} = user = user_fixture() |> set_password()
+      %{id: id} = user = set_password(user_fixture())
 
       assert %User{id: ^id} =
                Auth.get_user_by_email_and_password(user.email, valid_user_password())
@@ -261,7 +262,7 @@ defmodule MBCC.AuthTest do
       token = Auth.generate_user_session_token(user)
       assert user_token = Repo.get_by(UserToken, token: token)
       assert user_token.context == "session"
-      assert user_token.authenticated_at != nil
+      assert user_token.authenticated_at
 
       # Creating the same token for another user should fail
       assert_raise Ecto.ConstraintError, fn ->
@@ -278,7 +279,7 @@ defmodule MBCC.AuthTest do
       token = Auth.generate_user_session_token(user)
       assert user_token = Repo.get_by(UserToken, token: token)
       assert user_token.authenticated_at == user.authenticated_at
-      assert DateTime.compare(user_token.inserted_at, user.authenticated_at) == :gt
+      assert DateTime.after?(user_token.inserted_at, user.authenticated_at)
     end
   end
 
@@ -292,8 +293,8 @@ defmodule MBCC.AuthTest do
     test "returns user by token", %{user: user, token: token} do
       assert {session_user, token_inserted_at} = Auth.get_user_by_session_token(token)
       assert session_user.id == user.id
-      assert session_user.authenticated_at != nil
-      assert token_inserted_at != nil
+      assert session_user.authenticated_at
+      assert token_inserted_at
     end
 
     test "does not return user for invalid token" do

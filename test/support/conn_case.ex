@@ -19,15 +19,15 @@ defmodule MBCCWeb.ConnCase do
 
   using do
     quote do
+      use MBCCWeb, :verified_routes
+
+      import MBCCWeb.ConnCase
+      import Phoenix.ConnTest
+      import Plug.Conn
       # The default endpoint for testing
       @endpoint MBCCWeb.Endpoint
 
-      use MBCCWeb, :verified_routes
-
       # Import conveniences for testing with connections
-      import Plug.Conn
-      import Phoenix.ConnTest
-      import MBCCWeb.ConnCase
     end
   end
 
@@ -51,7 +51,7 @@ defmodule MBCCWeb.ConnCase do
     opts =
       context
       |> Map.take([:token_authenticated_at])
-      |> Enum.into([])
+      |> Enum.to_list()
 
     %{conn: log_in_user(conn, user, opts), user: user, scope: scope}
   end

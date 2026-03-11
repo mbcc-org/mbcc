@@ -1,8 +1,9 @@
 defmodule MBCC.Auth.UserNotifier do
+  @moduledoc false
   import Swoosh.Email
 
-  alias MBCC.Mailer
   alias MBCC.Auth.User
+  alias MBCC.Mailer
 
   # Delivers the email using the application mailer.
   defp deliver(recipient, subject, body) do

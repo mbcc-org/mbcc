@@ -1,6 +1,9 @@
 defmodule MBCC.Auth.UserToken do
+  @moduledoc false
   use Ecto.Schema
+
   import Ecto.Query
+
   alias MBCC.Auth.UserToken
 
   @hash_algorithm :sha256

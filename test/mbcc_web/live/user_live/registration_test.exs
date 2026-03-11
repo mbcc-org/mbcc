@@ -1,8 +1,8 @@
 defmodule MBCCWeb.UserLive.RegistrationTest do
   use MBCCWeb.ConnCase, async: true
 
-  import Phoenix.LiveViewTest
   import MBCC.AuthFixtures
+  import Phoenix.LiveViewTest
 
   describe "Registration page" do
     test "renders registration page", %{conn: conn} do
@@ -43,7 +43,8 @@ defmodule MBCCWeb.UserLive.RegistrationTest do
       form = form(lv, "#registration_form", user: valid_user_attributes(email: email))
 
       {:ok, _lv, html} =
-        render_submit(form)
+        form
+        |> render_submit()
         |> follow_redirect(conn, ~p"/users/log-in")
 
       assert html =~
