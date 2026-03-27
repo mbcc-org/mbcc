@@ -1,0 +1,9 @@
+name = "mbcc-website"
+main = "worker/src/index.ts"
+compatibility_date = "2025-03-01"
+
+[assets]
+directory = "./dist"
+
+[site]
+bucket = "./dist"

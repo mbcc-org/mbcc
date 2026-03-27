@@ -1,0 +1,134 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji",
+    "Segoe UI Emoji";
+
+  /* Warm neutrals */
+  --color-cream-50: #fdfbf7;
+  --color-cream-100: #faf7f2;
+  --color-cream-200: #f0ebe3;
+  --color-cream-300: #e5dfd4;
+  --color-cream-400: #d5cfc4;
+
+  /* Dark neutrals */
+  --color-charcoal-300: #8a8a8a;
+  --color-charcoal-400: #6b6b6b;
+  --color-charcoal-500: #555555;
+  --color-charcoal-600: #3d3d3d;
+  --color-charcoal-700: #2c2c2c;
+  --color-charcoal-800: #1a1a1a;
+
+  /* Saffron / Gold — primary */
+  --color-saffron-50: #fffbf0;
+  --color-saffron-100: #fef3d9;
+  --color-saffron-200: #fce4a8;
+  --color-saffron-300: #f9d176;
+  --color-saffron-400: #e8a317;
+  --color-saffron-500: #d4920b;
+  --color-saffron-600: #b87d09;
+  --color-saffron-700: #8b5f07;
+
+  /* Dharma Blue — secondary */
+  --color-dharma-50: #f0f4fb;
+  --color-dharma-100: #e0e7f5;
+  --color-dharma-200: #b3c4e8;
+  --color-dharma-300: #7a99d4;
+  --color-dharma-400: #2952cc;
+  --color-dharma-500: #1b3a8c;
+  --color-dharma-600: #142c6b;
+  --color-dharma-700: #0e1f4a;
+
+  /* Crimson — accent */
+  --color-crimson-50: #fff0f3;
+  --color-crimson-100: #fce4e9;
+  --color-crimson-200: #f5b3c0;
+  --color-crimson-400: #e02b4a;
+  --color-crimson-500: #c41e3a;
+  --color-crimson-600: #9e1830;
+
+  /* Bodhi Orange */
+  --color-bodhi-50: #fff7f0;
+  --color-bodhi-100: #fef0e0;
+  --color-bodhi-200: #fcd8ad;
+  --color-bodhi-400: #f09030;
+  --color-bodhi-500: #e07b2b;
+  --color-bodhi-600: #c46a1f;
+}
+
+/* Buddhist flag strip colors */
+.flag-strip {
+  background: linear-gradient(
+    to right,
+    #1b3a8c 0% 20%,
+    #e8a317 20% 40%,
+    #c41e3a 40% 60%,
+    #ffffff 60% 80%,
+    #e07b2b 80% 100%
+  );
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Prose content styling for markdown */
+.prose > * + * {
+  margin-top: 1.25em;
+}
+.prose h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-top: 2.5em;
+  margin-bottom: 0.75em;
+  color: var(--color-charcoal-800);
+}
+.prose h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-top: 1.75em;
+  margin-bottom: 0.5em;
+  color: var(--color-charcoal-700);
+}
+.prose p {
+  line-height: 1.8;
+  color: var(--color-charcoal-600);
+}
+.prose ul,
+.prose ol {
+  padding-left: 1.5em;
+  color: var(--color-charcoal-600);
+}
+.prose ul {
+  list-style-type: disc;
+}
+.prose ol {
+  list-style-type: decimal;
+}
+.prose li {
+  margin-bottom: 0.5em;
+  line-height: 1.7;
+}
+.prose a {
+  color: var(--color-dharma-500);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.prose a:hover {
+  color: var(--color-dharma-600);
+}
+.prose blockquote {
+  border-left: 3px solid var(--color-saffron-400);
+  padding-left: 1em;
+  font-style: italic;
+  color: var(--color-charcoal-500);
+}
+.prose img {
+  border-radius: 0.5rem;
+  max-width: 100%;
+}
+.prose strong {
+  color: var(--color-charcoal-700);
+}

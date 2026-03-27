@@ -1,0 +1,40 @@
+---
+import Navigation from "../components/Navigation.astro";
+import Footer from "../components/Footer.astro";
+import SEOHead from "../components/SEOHead.astro";
+import "../styles/global.css";
+
+interface Props {
+  title: string;
+  description?: string;
+  ogImage?: string;
+  ogType?: string;
+  canonicalUrl?: string;
+  jsonLd?: Record<string, unknown> | Record<string, unknown>[];
+}
+
+const { title, description, ogImage, ogType, canonicalUrl, jsonLd } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <SEOHead
+      title={title}
+      description={description}
+      ogImage={ogImage}
+      ogType={ogType}
+      canonicalUrl={canonicalUrl}
+      jsonLd={jsonLd}
+    />
+  </head>
+  <body class="bg-cream-50 text-charcoal-700 font-sans antialiased">
+    <Navigation />
+    <!-- Spacer for fixed header (flag strip 4px + nav 64px) -->
+    <div class="h-[68px]" aria-hidden="true"></div>
+    <main>
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>

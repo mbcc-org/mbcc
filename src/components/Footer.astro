@@ -1,0 +1,76 @@
+---
+const navLinks = [
+  { label: "Home", href: "/" },
+  { label: "About", href: "/about" },
+  { label: "Organisations", href: "/organisations" },
+  { label: "Events", href: "/events" },
+];
+
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="bg-charcoal-800 text-cream-200">
+  <!-- Decorative lotus divider -->
+  <div class="flex items-center justify-center py-0 -mb-px">
+    <svg class="w-16 h-8 text-saffron-500/30" viewBox="0 0 120 40" fill="currentColor" aria-hidden="true">
+      <path d="M60 4 C60 4, 72 14, 72 26 C72 32, 67 36, 60 36 C53 36, 48 32, 48 26 C48 14, 60 4, 60 4Z" opacity="0.6"/>
+      <path d="M60 8 C60 8, 50 16, 40 24 C34 30, 38 34, 44 32 C50 30, 56 22, 60 8Z" opacity="0.4"/>
+      <path d="M60 8 C60 8, 70 16, 80 24 C86 30, 82 34, 76 32 C70 30, 64 22, 60 8Z" opacity="0.4"/>
+      <path d="M60 12 C60 12, 46 18, 30 24 C22 28, 26 34, 34 30 C42 26, 52 20, 60 12Z" opacity="0.25"/>
+      <path d="M60 12 C60 12, 74 18, 90 24 C98 28, 94 34, 86 30 C78 26, 68 20, 60 12Z" opacity="0.25"/>
+    </svg>
+  </div>
+
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="flex flex-col md:flex-row justify-between items-start gap-8">
+      <!-- Branding + contact -->
+      <div class="max-w-sm">
+        <div class="flex items-center gap-2.5 mb-4">
+          <svg class="w-7 h-7 text-saffron-400" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+            <circle cx="16" cy="16" r="13" stroke="currentColor" stroke-width="1.5"/>
+            <circle cx="16" cy="16" r="3" fill="currentColor"/>
+            <g stroke="currentColor" stroke-width="1.2" stroke-linecap="round">
+              <line x1="16" y1="3" x2="16" y2="29"/>
+              <line x1="3" y1="16" x2="29" y2="16"/>
+              <line x1="6.1" y1="6.1" x2="25.9" y2="25.9"/>
+              <line x1="25.9" y1="6.1" x2="6.1" y2="25.9"/>
+            </g>
+          </svg>
+          <span class="text-cream-100 font-bold text-lg tracking-wide">MBCC</span>
+        </div>
+        <p class="text-cream-300 text-sm leading-relaxed mb-3">
+          Malaysian Buddhist Consultative Council
+        </p>
+        <p class="text-cream-400 text-xs leading-relaxed">
+          Promoting collective effort and cooperation amongst registered Buddhist organizations in Malaysia since 1999.
+        </p>
+      </div>
+
+      <!-- Navigation -->
+      <nav aria-label="Footer navigation">
+        <ul class="flex flex-wrap gap-x-6 gap-y-2">
+          {navLinks.map((link) => (
+            <li>
+              <a
+                href={link.href}
+                class="text-sm text-cream-300 hover:text-saffron-400 transition-colors"
+              >
+                {link.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </nav>
+    </div>
+
+    <!-- Bottom bar -->
+    <div class="mt-10 pt-6 border-t border-charcoal-600 flex flex-col sm:flex-row justify-between items-center gap-2">
+      <p class="text-xs text-charcoal-400">
+        &copy; {currentYear} Malaysian Buddhist Consultative Council. All rights reserved.
+      </p>
+      <p class="text-xs text-charcoal-500">
+        Registered under the Registrar of Society, Malaysia
+      </p>
+    </div>
+  </div>
+</footer>

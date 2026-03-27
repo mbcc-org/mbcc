@@ -1,0 +1,57 @@
+---
+import { getImageUrl } from "../lib/image";
+
+interface Photo {
+  path: string;
+  caption?: string;
+}
+
+interface Props {
+  photos: Photo[];
+  class?: string;
+}
+
+const { photos, class: className } = Astro.props;
+---
+
+{photos.length > 0 && (
+  <div class:list={["grid grid-cols-2 sm:grid-cols-3 gap-3", className]}>
+    {photos.map((photo, i) => (
+      <a
+        href={getImageUrl(photo.path, { width: 1200, height: 900 })}
+        class="glightbox block aspect-[4/3] overflow-hidden rounded-lg bg-cream-100 group"
+        data-gallery="gallery"
+        data-description={photo.caption}
+      >
+        <img
+          src={getImageUrl(photo.path, { width: 400, height: 300 })}
+          alt={photo.caption || `Photo ${i + 1}`}
+          class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+          loading="lazy"
+        />
+      </a>
+    ))}
+  </div>
+)}
+
+<script>
+  import GLightbox from "glightbox";
+  import "glightbox/dist/css/glightbox.min.css";
+
+  document.addEventListener("astro:page-load", () => {
+    GLightbox({
+      selector: ".glightbox",
+      touchNavigation: true,
+      loop: true,
+      closeOnOutsideClick: true,
+    });
+  });
+
+  // Also init on first load
+  GLightbox({
+    selector: ".glightbox",
+    touchNavigation: true,
+    loop: true,
+    closeOnOutsideClick: true,
+  });
+</script>

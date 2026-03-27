@@ -1,0 +1,81 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import OrgCard from "../../components/OrgCard.astro";
+
+const allOrgs = await getCollection("organisations");
+const nationalOrgs = allOrgs.filter((org) => org.data.role !== "founding-member");
+const foundingMember = allOrgs.find((org) => org.data.role === "founding-member");
+
+const siteUrl = import.meta.env.SITE_URL || "https://mbcc.my";
+
+const breadcrumbLd = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Home", item: siteUrl },
+    { "@type": "ListItem", position: 2, name: "Organisations", item: `${siteUrl}/organisations` },
+  ],
+};
+---
+
+<BaseLayout
+  title="Member Organisations — MBCC"
+  description="The seven national Buddhist organisations that make up the Malaysian Buddhist Consultative Council, representing Mahayana, Theravada, and Vajrayana traditions."
+  jsonLd={breadcrumbLd}
+>
+  <!-- Page Header -->
+  <section class="bg-cream-100 border-b border-cream-200">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
+      <p class="text-saffron-600 text-sm font-medium tracking-[0.15em] uppercase mb-3">Our Members</p>
+      <h1 class="text-3xl sm:text-4xl font-bold text-charcoal-800">
+        Member Organisations
+      </h1>
+      <p class="mt-4 text-lg text-charcoal-500 max-w-2xl leading-relaxed">
+        Seven national Buddhist organisations united under MBCC, representing the three major Buddhist traditions in Malaysia.
+      </p>
+    </div>
+  </section>
+
+  <section class="py-14 sm:py-20">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <!-- National organisations -->
+      <h2 class="text-lg font-semibold text-charcoal-700 mb-5">
+        National Buddhist Organisations
+      </h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
+        {nationalOrgs.map((org) => (
+          <OrgCard
+            name={org.data.name}
+            abbreviation={org.data.abbreviation}
+            tradition={org.data.tradition}
+            description={org.data.description}
+            logo={org.data.logo}
+            slug={org.id}
+            role={org.data.role}
+          />
+        ))}
+      </div>
+
+      <!-- Founding member -->
+      {foundingMember && (
+        <div class="mt-12">
+          <h2 class="text-lg font-semibold text-charcoal-700 mb-5">
+            Founding Member
+          </h2>
+          <div class="max-w-lg">
+            <OrgCard
+              name={foundingMember.data.name}
+              abbreviation={foundingMember.data.abbreviation}
+              tradition={foundingMember.data.tradition}
+              description={foundingMember.data.description}
+              logo={foundingMember.data.logo}
+              slug={foundingMember.id}
+              role={foundingMember.data.role}
+            />
+          </div>
+        </div>
+      )}
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,217 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import CommitteeMember from "../components/CommitteeMember.astro";
+import StatCounter from "../components/StatCounter.astro";
+
+const siteUrl = import.meta.env.SITE_URL || "https://mbcc.my";
+
+const breadcrumbLd = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Home", item: siteUrl },
+    { "@type": "ListItem", position: 2, name: "About", item: `${siteUrl}/about` },
+  ],
+};
+
+const timelineEvents = [
+  {
+    year: "1999",
+    title: "Formation Commences",
+    description:
+      "YB Dato Ong Ka Ting and Buddhist community leaders identify the need for a united Buddhist voice to liaise with the government. Initial discussions begin among key Buddhist organisations.",
+  },
+  {
+    year: "2000–2005",
+    title: "Building Consensus",
+    description:
+      "Under the guidance of Dato Fu Ah Kiow, the late Venerable Seck Chek Huang, and the late Venerable Dr. K. Sri Dhammananda Nāyaka Mahā Thero, national Buddhist organisations come together to discuss the formation of a consultative council.",
+  },
+  {
+    year: "2006–2014",
+    title: "Strengthening Foundations",
+    description:
+      "MBCC operates as an informal consultative body, building relationships between member organisations and establishing working protocols for government coordination.",
+  },
+  {
+    year: "2015",
+    title: "Official Registration",
+    description:
+      "MBCC is officially registered under the Registrar of Society on 29 April 2015, formalising its role as the representative body for the Malaysian Buddhist community.",
+  },
+];
+
+const committee = [
+  { name: "Venerable Sing Kan", title: "President", organisation: "Malaysia Buddhist Association (MBA)" },
+  { name: "Venerable Wei Wu", title: "Deputy President", organisation: "Buddhist Missionary Society Malaysia (BMSM)" },
+  { name: "Dato Dr. Ooi Hock Lye", title: "Vice President", organisation: "Young Buddhist Association of Malaysia (YBAM)" },
+  { name: "Venerable Jue Cheng", title: "Vice President", organisation: "Malaysian Fo Guang Buddhist Association (BLIA)" },
+  { name: "Mr. Lim Kooi Fong", title: "Secretary General", organisation: "Sasana Abhiwurdhi Wardhana Society (SAWS)" },
+  { name: "Mr. Tan Ah Chai", title: "Treasurer", organisation: "Theravada Buddhist Council of Malaysia (TBCM)" },
+  { name: "Lama Karma Samten", title: "Committee Member", organisation: "Vajrayana Buddhist Council of Malaysia (VBCM)" },
+];
+---
+
+<BaseLayout
+  title="About MBCC — History, Mission & Committee"
+  description="Learn about the Malaysian Buddhist Consultative Council's history from 1999 to today, our objectives, and the committee members guiding the organisation."
+  jsonLd={breadcrumbLd}
+>
+  <!-- Page Header -->
+  <section class="bg-cream-100 border-b border-cream-200">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
+      <p class="text-saffron-600 text-sm font-medium tracking-[0.15em] uppercase mb-3">About</p>
+      <h1 class="text-3xl sm:text-4xl font-bold text-charcoal-800">
+        Our Story & Mission
+      </h1>
+      <p class="mt-4 text-lg text-charcoal-500 max-w-2xl leading-relaxed">
+        From the first discussions in 1999 to official registration in 2015, MBCC has been the collective voice of Malaysia's Buddhist community.
+      </p>
+    </div>
+  </section>
+
+  <!-- History: Timeline + Prose -->
+  <section class="py-16 sm:py-20">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-[280px_1fr] gap-12 lg:gap-16">
+        <!-- Timeline (left) -->
+        <div class="relative">
+          <h2 class="text-xl font-bold text-charcoal-800 mb-8">Key Milestones</h2>
+          <div class="space-y-0">
+            {timelineEvents.map((event, i) => (
+              <div class="relative pl-8 pb-8 last:pb-0">
+                {/* Timeline line */}
+                {i < timelineEvents.length - 1 && (
+                  <div class="absolute left-[11px] top-6 bottom-0 w-px bg-cream-300" aria-hidden="true"></div>
+                )}
+                {/* Dharma wheel marker */}
+                <div class="absolute left-0 top-1 w-6 h-6 text-saffron-500" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" class="w-full h-full">
+                    <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5"/>
+                    <circle cx="12" cy="12" r="2" fill="currentColor"/>
+                    <g stroke="currentColor" stroke-width="1" stroke-linecap="round">
+                      <line x1="12" y1="2" x2="12" y2="22"/>
+                      <line x1="2" y1="12" x2="22" y2="12"/>
+                      <line x1="4.9" y1="4.9" x2="19.1" y2="19.1"/>
+                      <line x1="19.1" y1="4.9" x2="4.9" y2="19.1"/>
+                    </g>
+                  </svg>
+                </div>
+
+                <p class="text-sm font-bold text-saffron-600 tracking-wide">{event.year}</p>
+                <h3 class="font-semibold text-charcoal-800 mt-1">{event.title}</h3>
+                <p class="text-sm text-charcoal-500 mt-1 leading-relaxed">{event.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <!-- Narrative prose (right) -->
+        <div>
+          <h2 class="text-xl font-bold text-charcoal-800 mb-6">The MBCC Story</h2>
+          <div class="space-y-5 text-charcoal-600 leading-relaxed">
+            <p>
+              The story of the Malaysian Buddhist Consultative Council begins in 1999, when YB Dato Ong Ka Ting — recognising the need for a unified Buddhist voice in government dialogue — brought together leaders from Malaysia's most prominent Buddhist organisations. At the time, the Buddhist community lacked a single coordinating body that could represent the interests of all traditions.
+            </p>
+            <p>
+              The early efforts were championed by several visionary leaders: Dato Fu Ah Kiow, the late Venerable Seck Chek Huang (then President of the Malaysia Buddhist Association), and the late Venerable Dr. K. Sri Dhammananda Nāyaka Mahā Thero, one of the most respected Theravada monks in Southeast Asia. Together, they laid the groundwork for what would become MBCC.
+            </p>
+            <p>
+              For over a decade, the proto-MBCC functioned as an informal consultative body, bringing together representatives from Mahayana, Theravada, and Vajrayana organisations. This period was crucial in building trust and establishing working relationships across traditions that had historically operated independently.
+            </p>
+            <p>
+              On 29 April 2015, MBCC was officially registered under the Registrar of Society, formalising its role as the representative body for Malaysia's Buddhist community. The Malaysia Buddhist Association (MBA) was designated as the permanent founding member, with its President serving as the permanent President of MBCC — a recognition of MBA's historical role in Malaysian Buddhism.
+            </p>
+            <p>
+              Today, MBCC brings together seven national Buddhist organisations, collectively representing over 600 Buddhist temples and organisations, approximately 600,000 registered members, and serving the broader community of 5.4 million Buddhists in Malaysia — 16% of the national population.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Objectives -->
+  <section class="bg-cream-100 border-y border-cream-200 py-14 sm:py-16">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-10">
+        <h2 class="text-2xl sm:text-3xl font-bold text-charcoal-800">Our Objectives</h2>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-3xl mx-auto">
+        <div class="bg-white rounded-xl p-6 border border-cream-200">
+          <div class="w-10 h-10 rounded-lg bg-saffron-100 flex items-center justify-center mb-4">
+            <svg class="w-5 h-5 text-saffron-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M20.25 8.511c.884.284 1.5 1.128 1.5 2.097v4.286c0 1.136-.847 2.1-1.98 2.193-.34.027-.68.052-1.02.072v3.091l-3-3c-1.354 0-2.694-.055-4.02-.163a2.115 2.115 0 01-.825-.242m9.345-8.334a2.126 2.126 0 00-.476-.095 48.64 48.64 0 00-8.048 0c-1.131.094-1.976 1.057-1.976 2.192v4.286c0 .837.46 1.58 1.155 1.951m9.345-8.334V6.637c0-1.621-1.152-3.026-2.76-3.235A48.455 48.455 0 0011.25 3c-2.115 0-4.198.137-6.24.402-1.608.209-2.76 1.614-2.76 3.235v6.226c0 1.621 1.152 3.026 2.76 3.235.577.075 1.157.14 1.74.194V21l4.155-4.155"/>
+            </svg>
+          </div>
+          <h3 class="font-semibold text-charcoal-800 text-lg">Discuss & Resolve</h3>
+          <p class="text-charcoal-500 mt-2 leading-relaxed text-sm">
+            Discuss and resolve common issues of the Buddhist community through dialogue and collective action among member organisations.
+          </p>
+        </div>
+        <div class="bg-white rounded-xl p-6 border border-cream-200">
+          <div class="w-10 h-10 rounded-lg bg-dharma-50 flex items-center justify-center mb-4">
+            <svg class="w-5 h-5 text-dharma-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 21v-8.25M15.75 21v-8.25M8.25 21v-8.25M3 9l9-6 9 6m-1.5 12V10.332A48.36 48.36 0 0012 9.75c-2.551 0-5.056.2-7.5.582V21M3 21h18M12 6.75h.008v.008H12V6.75z"/>
+            </svg>
+          </div>
+          <h3 class="font-semibold text-charcoal-800 text-lg">Government Coordination</h3>
+          <p class="text-charcoal-500 mt-2 leading-relaxed text-sm">
+            Coordinate with government authorities on matters of the Buddhist religion, serving as the official liaison between the Buddhist community and the state.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Statistics -->
+  <section class="py-14 sm:py-16">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-2xl font-bold text-charcoal-800 text-center mb-10">The Buddhist Community in Malaysia</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-3xl mx-auto">
+        <div class="text-center p-6 bg-saffron-50 rounded-xl border border-saffron-100">
+          <p class="text-4xl font-bold text-saffron-600">600+</p>
+          <p class="text-sm text-charcoal-500 mt-2">Buddhist Organisations & Temples</p>
+          <p class="text-xs text-charcoal-400 mt-1">Across all Malaysian states</p>
+        </div>
+        <div class="text-center p-6 bg-dharma-50 rounded-xl border border-dharma-100">
+          <p class="text-4xl font-bold text-dharma-500">~600K</p>
+          <p class="text-sm text-charcoal-500 mt-2">Registered Members</p>
+          <p class="text-xs text-charcoal-400 mt-1">Across 7 member organisations</p>
+        </div>
+        <div class="text-center p-6 bg-bodhi-50 rounded-xl border border-bodhi-100">
+          <p class="text-4xl font-bold text-bodhi-500">5.4M</p>
+          <p class="text-sm text-charcoal-500 mt-2">Buddhists in Malaysia</p>
+          <p class="text-xs text-charcoal-400 mt-1">16% of the population</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Committee -->
+  <section class="bg-cream-100 border-t border-cream-200 py-16 sm:py-20">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <svg class="w-10 h-6 mx-auto mb-4 text-saffron-400/50" viewBox="0 0 120 40" fill="currentColor" aria-hidden="true">
+          <path d="M60 4 C60 4, 72 14, 72 26 C72 32, 67 36, 60 36 C53 36, 48 32, 48 26 C48 14, 60 4, 60 4Z" opacity="0.5"/>
+          <path d="M60 8 C60 8, 50 16, 40 24 C34 30, 38 34, 44 32 C50 30, 56 22, 60 8Z" opacity="0.35"/>
+          <path d="M60 8 C60 8, 70 16, 80 24 C86 30, 82 34, 76 32 C70 30, 64 22, 60 8Z" opacity="0.35"/>
+        </svg>
+        <h2 class="text-2xl sm:text-3xl font-bold text-charcoal-800">Current Committee</h2>
+        <p class="mt-3 text-charcoal-500">
+          Office bearers guiding MBCC's mission and activities.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6 sm:gap-8">
+        {committee.map((member) => (
+          <CommitteeMember
+            name={member.name}
+            title={member.title}
+            organisation={member.organisation}
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>

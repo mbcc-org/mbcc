@@ -1,0 +1,185 @@
+---
+import { getCollection, render } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import PhotoGallery from "../../components/PhotoGallery.astro";
+import { getImageUrl } from "../../lib/image";
+
+export async function getStaticPaths() {
+  const orgs = await getCollection("organisations");
+  return orgs.map((org) => ({
+    params: { slug: org.id },
+    props: { org },
+  }));
+}
+
+const { org } = Astro.props;
+const { Content } = await render(org);
+
+const siteUrl = import.meta.env.SITE_URL || "https://mbcc.my";
+
+const traditionLabels: Record<string, string> = {
+  mahayana: "Mahayana",
+  theravada: "Theravada",
+  vajrayana: "Vajrayana",
+};
+
+const traditionColors: Record<string, string> = {
+  mahayana: "bg-saffron-100 text-saffron-700",
+  theravada: "bg-bodhi-100 text-bodhi-600",
+  vajrayana: "bg-crimson-100 text-crimson-600",
+};
+
+const breadcrumbLd = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Home", item: siteUrl },
+    { "@type": "ListItem", position: 2, name: "Organisations", item: `${siteUrl}/organisations` },
+    { "@type": "ListItem", position: 3, name: org.data.name, item: `${siteUrl}/organisations/${org.id}` },
+  ],
+};
+
+const logoUrl = org.data.logo ? getImageUrl(org.data.logo, { width: 160, height: 160 }) : "";
+---
+
+<BaseLayout
+  title={`${org.data.name} — MBCC Member Organisation`}
+  description={org.data.description || `${org.data.name} is a member organisation of the Malaysian Buddhist Consultative Council.`}
+  jsonLd={breadcrumbLd}
+>
+  <!-- Page Header -->
+  <section class="bg-cream-100 border-b border-cream-200">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
+      <!-- Breadcrumb -->
+      <nav class="mb-6" aria-label="Breadcrumb">
+        <ol class="flex items-center gap-2 text-sm text-charcoal-400">
+          <li><a href="/organisations" class="hover:text-dharma-500 transition-colors">Organisations</a></li>
+          <li aria-hidden="true">/</li>
+          <li class="text-charcoal-600">{org.data.abbreviation || org.data.name}</li>
+        </ol>
+      </nav>
+
+      <div class="flex items-start gap-5">
+        {logoUrl ? (
+          <img
+            src={logoUrl}
+            alt={`${org.data.name} logo`}
+            class="w-20 h-20 rounded-xl object-cover bg-white border border-cream-200 shrink-0"
+          />
+        ) : (
+          <div class="w-20 h-20 rounded-xl bg-white border border-cream-200 flex items-center justify-center shrink-0">
+            <span class="text-3xl font-bold text-charcoal-300">
+              {org.data.abbreviation?.charAt(0) || org.data.name.charAt(0)}
+            </span>
+          </div>
+        )}
+        <div>
+          {org.data.abbreviation && (
+            <p class="text-sm text-charcoal-400 font-medium">{org.data.abbreviation}</p>
+          )}
+          <h1 class="text-2xl sm:text-3xl font-bold text-charcoal-800 leading-tight">
+            {org.data.name}
+          </h1>
+          <div class="flex flex-wrap items-center gap-2 mt-3">
+            {org.data.tradition && (
+              <span class:list={["text-xs font-medium px-2.5 py-1 rounded-full", traditionColors[org.data.tradition]]}>
+                {traditionLabels[org.data.tradition]}
+              </span>
+            )}
+            {org.data.role === "founding-member" && (
+              <span class="text-xs font-medium px-2.5 py-1 rounded-full bg-dharma-50 text-dharma-600">
+                Founding Member
+              </span>
+            )}
+            {org.data.foundingYear && (
+              <span class="text-xs text-charcoal-400">Est. {org.data.foundingYear}</span>
+            )}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-12 sm:py-16">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-[1fr_280px] gap-12 lg:gap-16">
+        <!-- Main content -->
+        <div class="prose max-w-none">
+          <Content />
+        </div>
+
+        <!-- Sidebar -->
+        <aside class="space-y-6">
+          {/* Contact & info card */}
+          <div class="bg-cream-100 rounded-xl p-5 border border-cream-200">
+            <h2 class="text-sm font-semibold text-charcoal-700 uppercase tracking-wide mb-4">
+              Organisation Info
+            </h2>
+
+            <dl class="space-y-3 text-sm">
+              {org.data.website && (
+                <div>
+                  <dt class="text-charcoal-400 text-xs uppercase tracking-wide">Website</dt>
+                  <dd class="mt-0.5">
+                    <a
+                      href={org.data.website}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="text-dharma-500 hover:text-dharma-600 underline underline-offset-2 break-all"
+                    >
+                      {org.data.website.replace(/^https?:\/\//, "")}
+                    </a>
+                  </dd>
+                </div>
+              )}
+
+              {org.data.contact?.email && (
+                <div>
+                  <dt class="text-charcoal-400 text-xs uppercase tracking-wide">Email</dt>
+                  <dd class="mt-0.5">
+                    <a href={`mailto:${org.data.contact.email}`} class="text-dharma-500 hover:text-dharma-600 underline underline-offset-2">
+                      {org.data.contact.email}
+                    </a>
+                  </dd>
+                </div>
+              )}
+
+              {org.data.contact?.phone && (
+                <div>
+                  <dt class="text-charcoal-400 text-xs uppercase tracking-wide">Phone</dt>
+                  <dd class="mt-0.5 text-charcoal-600">{org.data.contact.phone}</dd>
+                </div>
+              )}
+
+              {org.data.contact?.address && (
+                <div>
+                  <dt class="text-charcoal-400 text-xs uppercase tracking-wide">Address</dt>
+                  <dd class="mt-0.5 text-charcoal-600 leading-relaxed">{org.data.contact.address}</dd>
+                </div>
+              )}
+            </dl>
+          </div>
+
+          {/* Back link */}
+          <a
+            href="/organisations"
+            class="inline-flex items-center text-sm text-charcoal-400 hover:text-dharma-500 transition-colors"
+          >
+            <svg class="w-4 h-4 mr-1.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 15.75L3 12m0 0l3.75-3.75M3 12h18" />
+            </svg>
+            All organisations
+          </a>
+        </aside>
+      </div>
+
+      {/* Photo Gallery */}
+      {org.data.photos && org.data.photos.length > 0 && (
+        <div class="mt-16">
+          <h2 class="text-xl font-bold text-charcoal-800 mb-6">Photos</h2>
+          <PhotoGallery photos={org.data.photos} />
+        </div>
+      )}
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,52 @@
+---
+interface Props {
+  title: string;
+  description?: string;
+  ogImage?: string;
+  ogType?: string;
+  canonicalUrl?: string;
+  jsonLd?: Record<string, unknown> | Record<string, unknown>[];
+}
+
+const {
+  title,
+  description = "Malaysian Buddhist Consultative Council — Promoting collective effort and cooperation amongst Buddhist organizations in Malaysia.",
+  ogImage = "/og-default.svg",
+  ogType = "website",
+  canonicalUrl,
+  jsonLd,
+} = Astro.props;
+
+const siteUrl = import.meta.env.SITE_URL || Astro.site?.toString()?.replace(/\/$/, "") || "https://mbcc.my";
+const fullOgImage = ogImage.startsWith("http") ? ogImage : `${siteUrl}${ogImage}`;
+const fullCanonicalUrl = canonicalUrl || new URL(Astro.url.pathname, siteUrl).toString();
+
+const jsonLdArray = jsonLd ? (Array.isArray(jsonLd) ? jsonLd : [jsonLd]) : [];
+---
+
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<meta name="generator" content={Astro.generator} />
+
+<title>{title}</title>
+<meta name="description" content={description} />
+<link rel="canonical" href={fullCanonicalUrl} />
+
+<!-- Open Graph -->
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:image" content={fullOgImage} />
+<meta property="og:type" content={ogType} />
+<meta property="og:url" content={fullCanonicalUrl} />
+<meta property="og:site_name" content="MBCC" />
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={fullOgImage} />
+
+{jsonLdArray.map((ld) => (
+  <script type="application/ld+json" set:html={JSON.stringify(ld)} />
+))}
