@@ -8,7 +8,7 @@ interface Props {
 const { value, label, icon = "lotus" } = Astro.props;
 ---
 
-<div class="flex items-center gap-3 px-4 py-3">
+<div class="flex flex-col items-center text-center sm:flex-row sm:items-start sm:text-left gap-2 sm:gap-3 px-4 py-3">
   <div class="text-saffron-500/70 shrink-0">
     {icon === "temple" && (
       <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
@@ -22,9 +22,14 @@ const { value, label, icon = "lotus" } = Astro.props;
     )}
     {icon === "lotus" && (
       <svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-        <path d="M12 3C12 3 16 8 16 13c0 3-2 5-4 5s-4-2-4-5c0-5 4-10 4-10z" opacity="0.6"/>
-        <path d="M12 6c0 0-4 4-8 8-2 2 0 4 2 3 3-2 5-5 6-11z" opacity="0.4"/>
-        <path d="M12 6c0 0 4 4 8 8 2 2 0 4-2 3-3-2-5-5-6-11z" opacity="0.4"/>
+        <!-- Center petal -->
+        <ellipse cx="12" cy="11" rx="2.5" ry="7" opacity="0.6"/>
+        <!-- Inner petals -->
+        <ellipse cx="12" cy="11" rx="2.3" ry="6.5" transform="rotate(-28 12 16)" opacity="0.45"/>
+        <ellipse cx="12" cy="11" rx="2.3" ry="6.5" transform="rotate(28 12 16)" opacity="0.45"/>
+        <!-- Outer petals -->
+        <ellipse cx="12" cy="11" rx="2" ry="5.5" transform="rotate(-55 12 16)" opacity="0.3"/>
+        <ellipse cx="12" cy="11" rx="2" ry="5.5" transform="rotate(55 12 16)" opacity="0.3"/>
       </svg>
     )}
   </div>

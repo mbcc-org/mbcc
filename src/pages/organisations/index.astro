@@ -39,43 +39,30 @@ const breadcrumbLd = {
 
   <section class="py-14 sm:py-20">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-      <!-- National organisations -->
-      <h2 class="text-lg font-semibold text-charcoal-700 mb-5">
-        National Buddhist Organisations
-      </h2>
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
-        {nationalOrgs.map((org) => (
+        {foundingMember && (
           <OrgCard
-            name={org.data.name}
-            abbreviation={org.data.abbreviation}
-            tradition={org.data.tradition}
-            description={org.data.description}
-            logo={org.data.logo}
-            slug={org.id}
-            role={org.data.role}
+            name={foundingMember.data.name}
+            abbreviation={foundingMember.data.abbreviation}
+            description={foundingMember.data.description}
+            logo={foundingMember.data.logo}
+            slug={foundingMember.id}
+            role={foundingMember.data.role}
           />
-        ))}
-      </div>
-
-      <!-- Founding member -->
-      {foundingMember && (
-        <div class="mt-12">
-          <h2 class="text-lg font-semibold text-charcoal-700 mb-5">
-            Founding Member
-          </h2>
-          <div class="max-w-lg">
+        )}
+        {nationalOrgs.map((org, i) => (
+          <div class:list={[i === nationalOrgs.length - 1 && "sm:col-start-1 lg:col-start-2"]}>
             <OrgCard
-              name={foundingMember.data.name}
-              abbreviation={foundingMember.data.abbreviation}
-              tradition={foundingMember.data.tradition}
-              description={foundingMember.data.description}
-              logo={foundingMember.data.logo}
-              slug={foundingMember.id}
-              role={foundingMember.data.role}
+              name={org.data.name}
+              abbreviation={org.data.abbreviation}
+              description={org.data.description}
+              logo={org.data.logo}
+              slug={org.id}
+              role={org.data.role}
             />
           </div>
-        </div>
-      )}
+        ))}
+      </div>
     </div>
   </section>
 </BaseLayout>

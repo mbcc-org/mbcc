@@ -4,36 +4,20 @@ import { getImageUrl } from "../lib/image";
 interface Props {
   name: string;
   abbreviation?: string;
-  tradition?: "mahayana" | "theravada" | "vajrayana";
   description?: string;
   logo?: string;
   slug: string;
   role?: "founding-member" | "national-org";
 }
 
-const { name, abbreviation, tradition, description, logo, slug, role } = Astro.props;
-
-const traditionColors = {
-  mahayana: "bg-saffron-100 text-saffron-700 border-saffron-200",
-  theravada: "bg-bodhi-100 text-bodhi-600 border-bodhi-200",
-  vajrayana: "bg-crimson-100 text-crimson-600 border-crimson-200",
-};
-
-const traditionAccent = {
-  mahayana: "border-saffron-300",
-  theravada: "border-bodhi-400",
-  vajrayana: "border-crimson-400",
-};
+const { name, abbreviation, description, logo, slug, role } = Astro.props;
 
 const logoUrl = logo ? getImageUrl(logo, { width: 120, height: 120 }) : "";
 ---
 
 <a
   href={`/organisations/${slug}`}
-  class:list={[
-    "group block bg-white rounded-xl border border-cream-200 hover:border-cream-300 hover:shadow-lg transition-all duration-200 overflow-hidden",
-    tradition && `border-t-2 ${traditionAccent[tradition]}`,
-  ]}
+  class="group block bg-white rounded-xl border border-cream-200 hover:border-cream-300 hover:shadow-lg transition-all duration-200 overflow-hidden"
 >
   <div class="p-5 sm:p-6">
     <div class="flex items-start gap-4">
@@ -54,29 +38,23 @@ const logoUrl = logo ? getImageUrl(logo, { width: 120, height: 120 }) : "";
 
       <div class="min-w-0 flex-1">
         <h3 class="font-semibold text-charcoal-800 group-hover:text-saffron-600 transition-colors leading-tight">
-          {abbreviation && (
-            <span class="text-charcoal-400 font-normal text-sm">{abbreviation} &mdash; </span>
-          )}
           {name}
-        </h3>
-
-        <div class="flex flex-wrap items-center gap-2 mt-2">
-          {tradition && (
-            <span class:list={["text-xs font-medium px-2 py-0.5 rounded-full border", traditionColors[tradition]]}>
-              {tradition.charAt(0).toUpperCase() + tradition.slice(1)}
-            </span>
+          {abbreviation && (
+            <span class="text-charcoal-400 font-normal text-sm"> ({abbreviation})</span>
           )}
           {role === "founding-member" && (
-            <span class="text-xs font-medium px-2 py-0.5 rounded-full bg-dharma-50 text-dharma-600 border border-dharma-200">
-              Founding Member
-            </span>
+            <span class="text-xs font-medium text-saffron-600 ml-1">Founding Member</span>
           )}
-        </div>
+        </h3>
       </div>
     </div>
 
     {description && (
       <p class="text-sm text-charcoal-500 mt-3 leading-relaxed line-clamp-2">{description}</p>
     )}
+
+    <p class="text-sm font-medium text-saffron-600 mt-3 text-right group-hover:text-saffron-700 transition-colors">
+      Read more <span class="inline-block group-hover:translate-x-0.5 transition-transform">&rarr;</span>
+    </p>
   </div>
 </a>

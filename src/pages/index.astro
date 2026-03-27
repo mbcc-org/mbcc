@@ -104,7 +104,7 @@ const breadcrumbLd = {
           href="/about"
           class="inline-flex items-center mt-8 text-sm font-medium text-saffron-300 hover:text-saffron-200 transition-colors group"
         >
-          Learn about our history
+          Learn more about us
           <svg class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
             <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3" />
           </svg>
@@ -118,10 +118,15 @@ const breadcrumbLd = {
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-12">
         <!-- Decorative lotus -->
-        <svg class="w-10 h-6 mx-auto mb-4 text-saffron-400/50" viewBox="0 0 120 40" fill="currentColor" aria-hidden="true">
-          <path d="M60 4 C60 4, 72 14, 72 26 C72 32, 67 36, 60 36 C53 36, 48 32, 48 26 C48 14, 60 4, 60 4Z" opacity="0.5"/>
-          <path d="M60 8 C60 8, 50 16, 40 24 C34 30, 38 34, 44 32 C50 30, 56 22, 60 8Z" opacity="0.35"/>
-          <path d="M60 8 C60 8, 70 16, 80 24 C86 30, 82 34, 76 32 C70 30, 64 22, 60 8Z" opacity="0.35"/>
+        <svg class="w-16 h-10 mx-auto mb-4 text-saffron-400/50" viewBox="0 0 40 24" fill="currentColor" aria-hidden="true">
+          <!-- Center petal -->
+          <ellipse cx="20" cy="11" rx="3.5" ry="9" opacity="0.55"/>
+          <!-- Inner petals -->
+          <ellipse cx="20" cy="11" rx="3.2" ry="8" transform="rotate(-28 20 18)" opacity="0.4"/>
+          <ellipse cx="20" cy="11" rx="3.2" ry="8" transform="rotate(28 20 18)" opacity="0.4"/>
+          <!-- Outer petals -->
+          <ellipse cx="20" cy="11" rx="2.8" ry="7" transform="rotate(-52 20 18)" opacity="0.25"/>
+          <ellipse cx="20" cy="11" rx="2.8" ry="7" transform="rotate(52 20 18)" opacity="0.25"/>
         </svg>
         <h2 class="text-2xl sm:text-3xl font-bold text-charcoal-800">
           Member Organisations
@@ -131,47 +136,31 @@ const breadcrumbLd = {
         </p>
       </div>
 
-      <!-- National org grid -->
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
-        {nationalOrgs.map((org) => (
-          <OrgCard
-            name={org.data.name}
-            abbreviation={org.data.abbreviation}
-            tradition={org.data.tradition}
-            description={org.data.description}
-            logo={org.data.logo}
-            slug={org.id}
-            role={org.data.role}
-          />
-        ))}
-      </div>
-
-      <!-- Founding member — own row below -->
-      {foundingMember && (
-        <div class="mt-6 max-w-lg mx-auto">
+        {foundingMember && (
           <OrgCard
             name={foundingMember.data.name}
             abbreviation={foundingMember.data.abbreviation}
-            tradition={foundingMember.data.tradition}
             description={foundingMember.data.description}
             logo={foundingMember.data.logo}
             slug={foundingMember.id}
             role={foundingMember.data.role}
           />
-        </div>
-      )}
-
-      <div class="text-center mt-8">
-        <a
-          href="/organisations"
-          class="inline-flex items-center text-sm font-medium text-dharma-500 hover:text-dharma-600 transition-colors"
-        >
-          View all organisations
-          <svg class="w-4 h-4 ml-1.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3" />
-          </svg>
-        </a>
+        )}
+        {nationalOrgs.map((org, i) => (
+          <div class:list={[i === nationalOrgs.length - 1 && "sm:col-start-1 lg:col-start-2"]}>
+            <OrgCard
+              name={org.data.name}
+              abbreviation={org.data.abbreviation}
+              description={org.data.description}
+              logo={org.data.logo}
+              slug={org.id}
+              role={org.data.role}
+            />
+          </div>
+        ))}
       </div>
+
     </div>
   </section>
 
@@ -203,7 +192,7 @@ const breadcrumbLd = {
           </div>
           <a
             href="/events"
-            class="hidden sm:inline-flex items-center text-sm font-medium text-dharma-500 hover:text-dharma-600 transition-colors"
+            class="hidden sm:inline-flex items-center text-sm font-medium text-saffron-600 hover:text-saffron-700 transition-colors"
           >
             All events
             <svg class="w-4 h-4 ml-1.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
@@ -228,7 +217,7 @@ const breadcrumbLd = {
         <div class="sm:hidden text-center mt-6">
           <a
             href="/events"
-            class="inline-flex items-center text-sm font-medium text-dharma-500 hover:text-dharma-600 transition-colors"
+            class="inline-flex items-center text-sm font-medium text-saffron-600 hover:text-saffron-700 transition-colors"
           >
             View all events
             <svg class="w-4 h-4 ml-1.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">

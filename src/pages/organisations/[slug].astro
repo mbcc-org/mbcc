@@ -17,17 +17,6 @@ const { Content } = await render(org);
 
 const siteUrl = import.meta.env.SITE_URL || "https://mbcc.my";
 
-const traditionLabels: Record<string, string> = {
-  mahayana: "Mahayana",
-  theravada: "Theravada",
-  vajrayana: "Vajrayana",
-};
-
-const traditionColors: Record<string, string> = {
-  mahayana: "bg-saffron-100 text-saffron-700",
-  theravada: "bg-bodhi-100 text-bodhi-600",
-  vajrayana: "bg-crimson-100 text-crimson-600",
-};
 
 const breadcrumbLd = {
   "@context": "https://schema.org",
@@ -74,25 +63,50 @@ const logoUrl = org.data.logo ? getImageUrl(org.data.logo, { width: 160, height:
           </div>
         )}
         <div>
-          {org.data.abbreviation && (
-            <p class="text-sm text-charcoal-400 font-medium">{org.data.abbreviation}</p>
-          )}
           <h1 class="text-2xl sm:text-3xl font-bold text-charcoal-800 leading-tight">
             {org.data.name}
           </h1>
-          <div class="flex flex-wrap items-center gap-2 mt-3">
-            {org.data.tradition && (
-              <span class:list={["text-xs font-medium px-2.5 py-1 rounded-full", traditionColors[org.data.tradition]]}>
-                {traditionLabels[org.data.tradition]}
+          {org.data.role === "founding-member" && (
+            <p class="text-sm font-medium text-saffron-600 mt-2">Founding Member</p>
+          )}
+          <div class="flex flex-col gap-2 mt-3 text-sm">
+            {org.data.website && (
+              <a
+                href={org.data.website}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center gap-2 text-dharma-500 hover:text-dharma-600 underline underline-offset-2"
+              >
+                <svg class="w-4 h-4 shrink-0 text-saffron-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0112 16.5a17.92 17.92 0 01-8.716-2.247m0 0A9 9 0 013 12c0-1.47.353-2.856.978-4.082" />
+                </svg>
+                {org.data.website.replace(/^https?:\/\//, "")}
+              </a>
+            )}
+            {org.data.contact?.email && (
+              <a href={`mailto:${org.data.contact.email}`} class="inline-flex items-center gap-2 text-dharma-500 hover:text-dharma-600 underline underline-offset-2">
+                <svg class="w-4 h-4 shrink-0 text-saffron-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
+                </svg>
+                {org.data.contact.email}
+              </a>
+            )}
+            {org.data.contact?.phone && (
+              <span class="inline-flex items-center gap-2 text-charcoal-500">
+                <svg class="w-4 h-4 shrink-0 text-saffron-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" />
+                </svg>
+                {org.data.contact.phone}
               </span>
             )}
-            {org.data.role === "founding-member" && (
-              <span class="text-xs font-medium px-2.5 py-1 rounded-full bg-dharma-50 text-dharma-600">
-                Founding Member
+            {org.data.contact?.address && (
+              <span class="inline-flex items-start gap-2 text-charcoal-500">
+                <svg class="w-4 h-4 shrink-0 mt-0.5 text-saffron-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
+                </svg>
+                {org.data.contact.address}
               </span>
-            )}
-            {org.data.foundingYear && (
-              <span class="text-xs text-charcoal-400">Est. {org.data.foundingYear}</span>
             )}
           </div>
         </div>
@@ -102,75 +116,8 @@ const logoUrl = org.data.logo ? getImageUrl(org.data.logo, { width: 160, height:
 
   <section class="py-12 sm:py-16">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-1 lg:grid-cols-[1fr_280px] gap-12 lg:gap-16">
-        <!-- Main content -->
-        <div class="prose max-w-none">
-          <Content />
-        </div>
-
-        <!-- Sidebar -->
-        <aside class="space-y-6">
-          {/* Contact & info card */}
-          <div class="bg-cream-100 rounded-xl p-5 border border-cream-200">
-            <h2 class="text-sm font-semibold text-charcoal-700 uppercase tracking-wide mb-4">
-              Organisation Info
-            </h2>
-
-            <dl class="space-y-3 text-sm">
-              {org.data.website && (
-                <div>
-                  <dt class="text-charcoal-400 text-xs uppercase tracking-wide">Website</dt>
-                  <dd class="mt-0.5">
-                    <a
-                      href={org.data.website}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      class="text-dharma-500 hover:text-dharma-600 underline underline-offset-2 break-all"
-                    >
-                      {org.data.website.replace(/^https?:\/\//, "")}
-                    </a>
-                  </dd>
-                </div>
-              )}
-
-              {org.data.contact?.email && (
-                <div>
-                  <dt class="text-charcoal-400 text-xs uppercase tracking-wide">Email</dt>
-                  <dd class="mt-0.5">
-                    <a href={`mailto:${org.data.contact.email}`} class="text-dharma-500 hover:text-dharma-600 underline underline-offset-2">
-                      {org.data.contact.email}
-                    </a>
-                  </dd>
-                </div>
-              )}
-
-              {org.data.contact?.phone && (
-                <div>
-                  <dt class="text-charcoal-400 text-xs uppercase tracking-wide">Phone</dt>
-                  <dd class="mt-0.5 text-charcoal-600">{org.data.contact.phone}</dd>
-                </div>
-              )}
-
-              {org.data.contact?.address && (
-                <div>
-                  <dt class="text-charcoal-400 text-xs uppercase tracking-wide">Address</dt>
-                  <dd class="mt-0.5 text-charcoal-600 leading-relaxed">{org.data.contact.address}</dd>
-                </div>
-              )}
-            </dl>
-          </div>
-
-          {/* Back link */}
-          <a
-            href="/organisations"
-            class="inline-flex items-center text-sm text-charcoal-400 hover:text-dharma-500 transition-colors"
-          >
-            <svg class="w-4 h-4 mr-1.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 15.75L3 12m0 0l3.75-3.75M3 12h18" />
-            </svg>
-            All organisations
-          </a>
-        </aside>
+      <div class="prose max-w-none">
+        <Content />
       </div>
 
       {/* Photo Gallery */}

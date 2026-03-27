@@ -82,10 +82,10 @@ const committee = [
               <div class="relative pl-8 pb-8 last:pb-0">
                 {/* Timeline line */}
                 {i < timelineEvents.length - 1 && (
-                  <div class="absolute left-[11px] top-6 bottom-0 w-px bg-cream-300" aria-hidden="true"></div>
+                  <div class="absolute left-[11px] top-5 bottom-0 w-px bg-cream-300" aria-hidden="true"></div>
                 )}
                 {/* Dharma wheel marker */}
-                <div class="absolute left-0 top-1 w-6 h-6 text-saffron-500" aria-hidden="true">
+                <div class="absolute left-0.5 top-0 w-5 h-5 text-saffron-500" aria-hidden="true">
                   <svg viewBox="0 0 24 24" fill="none" class="w-full h-full">
                     <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5"/>
                     <circle cx="12" cy="12" r="2" fill="currentColor"/>
@@ -192,10 +192,12 @@ const committee = [
   <section class="bg-cream-100 border-t border-cream-200 py-16 sm:py-20">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-12">
-        <svg class="w-10 h-6 mx-auto mb-4 text-saffron-400/50" viewBox="0 0 120 40" fill="currentColor" aria-hidden="true">
-          <path d="M60 4 C60 4, 72 14, 72 26 C72 32, 67 36, 60 36 C53 36, 48 32, 48 26 C48 14, 60 4, 60 4Z" opacity="0.5"/>
-          <path d="M60 8 C60 8, 50 16, 40 24 C34 30, 38 34, 44 32 C50 30, 56 22, 60 8Z" opacity="0.35"/>
-          <path d="M60 8 C60 8, 70 16, 80 24 C86 30, 82 34, 76 32 C70 30, 64 22, 60 8Z" opacity="0.35"/>
+        <svg class="w-16 h-10 mx-auto mb-4 text-saffron-400/50" viewBox="0 0 40 24" fill="currentColor" aria-hidden="true">
+          <ellipse cx="20" cy="11" rx="3.5" ry="9" opacity="0.55"/>
+          <ellipse cx="20" cy="11" rx="3.2" ry="8" transform="rotate(-28 20 18)" opacity="0.4"/>
+          <ellipse cx="20" cy="11" rx="3.2" ry="8" transform="rotate(28 20 18)" opacity="0.4"/>
+          <ellipse cx="20" cy="11" rx="2.8" ry="7" transform="rotate(-52 20 18)" opacity="0.25"/>
+          <ellipse cx="20" cy="11" rx="2.8" ry="7" transform="rotate(52 20 18)" opacity="0.25"/>
         </svg>
         <h2 class="text-2xl sm:text-3xl font-bold text-charcoal-800">Current Committee</h2>
         <p class="mt-3 text-charcoal-500">
