@@ -1,0 +1,145 @@
+---
+title: Nationwide Grassroots Wesak Celebrations 2026
+date: 2026-05-31
+location: Individual Buddhist organization, temple or vihara across the country
+description: >-
+  Registration for the Sambutan Hari Wesak 2026 Peringkat Akar Umbi is now
+  open. Every participating Buddhist organization, temple or vihara across
+  Malaysia will receive support from the Federal Government.
+thumbnail: posters/nationwide-grassroots-wesak-celebrations-2026.jpeg
+---
+
+<style>
+  .event-poster-wrap {
+    display: block;
+    width: 100%;
+    margin-bottom: 1.5rem;
+  }
+  @media (min-width: 768px) {
+    .event-poster-wrap {
+      float: right;
+      width: 40%;
+      margin-left: 1.5rem;
+      margin-bottom: 1rem;
+    }
+  }
+  .event-cta-wrap {
+    margin: 1.5rem 0;
+  }
+  .event-cta-btn {
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    padding: 0.75rem 1.5rem;
+    background-color: var(--color-saffron-600);
+    color: #ffffff !important;
+    font-weight: 600;
+    border-radius: 0.5rem;
+    text-decoration: none !important;
+    transition: background-color 0.2s;
+  }
+  .event-cta-btn:hover {
+    background-color: var(--color-saffron-700);
+    color: #ffffff !important;
+  }
+  @media (min-width: 640px) {
+    .event-cta-btn {
+      width: auto;
+    }
+  }
+  .event-download-card {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1rem 1.25rem;
+    border: 1px solid var(--color-cream-300);
+    border-radius: 0.5rem;
+    background-color: var(--color-cream-100);
+    color: var(--color-charcoal-700) !important;
+    text-decoration: none !important;
+    transition: background-color 0.15s;
+    margin: 1.25rem 0;
+  }
+  .event-download-card:hover {
+    background-color: var(--color-cream-200);
+    color: var(--color-charcoal-800) !important;
+  }
+  .event-download-card svg {
+    flex-shrink: 0;
+    color: var(--color-saffron-600);
+  }
+  .event-download-card span {
+    flex: 1;
+    font-weight: 500;
+    font-size: 0.9375rem;
+  }
+  .event-clearfix::after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+</style>
+
+<div class="event-poster-wrap">
+  <a href="/posters/nationwide-grassroots-wesak-celebrations-2026.jpeg" class="glightbox block">
+    <img src="/posters/nationwide-grassroots-wesak-celebrations-2026.jpeg" alt="Nationwide Grassroots Wesak Celebrations 2026" style="width: 100%; border-radius: 0.5rem;" />
+  </a>
+</div>
+
+<div class="event-cta-wrap">
+  <a href="https://ibbn.net/events/JFEW5Wc4xQ8mKrybIhpp" target="_blank" rel="noopener noreferrer" class="event-cta-btn">
+    Register Now
+  </a>
+</div>
+
+The Malaysia Madani Government together with the Malaysian Buddhist Consultative Council (MBCC) are pleased to announce that registration for the Sambutan Hari Wesak 2026 Peringkat Akar Umbi is now open.
+
+## Objective
+
+To broaden community participation and foster inclusivity in the observance of Wesak Day across Malaysia.
+
+## Support Mechanism
+
+In recognition of Wesak Day, every participating Buddhist organization, temple or vihara across Malaysia will receive support from the Federal Government. The grant amount will be determined and disbursed after the celebration, with each organization required to comply with the stipulated terms and conditions.
+
+## Participation Guidelines
+
+<a href="/files/participation-guidelines-and-terms-and-conditions-for-wesak-2026.pdf" class="event-download-card" target="_blank" rel="noopener noreferrer">
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+    <polyline points="14 2 14 8 20 8"/>
+    <line x1="12" y1="18" x2="12" y2="12"/>
+    <line x1="9" y1="15" x2="15" y2="15"/>
+  </svg>
+  <span>Participation Guidelines and Terms & Conditions</span>
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+    <polyline points="7 10 12 15 17 10"/>
+    <line x1="12" y1="15" x2="12" y2="3"/>
+  </svg>
+</a>
+
+## Important Notes
+
+> This registration form is intended to collect organizational, contact, and bank details for internal coordination and grant disbursement purposes only.
+>
+> All information submitted will be treated with strict confidentiality and will be accessed solely by authorized personnel.
+
+## Event Details
+
+- **Date:** Sunday, 31 May 2026
+- **Location:** Individual Buddhist organization, temple or vihara across the country
+
+## For Enquiries
+
+- Wong Tin Song
+- [wesak.mbcc@gmail.com](mailto:wesak.mbcc@gmail.com)
+- [+601161700123](tel:+601161700123)
+
+<div class="event-clearfix"></div>
+
+<div class="event-cta-wrap">
+  <a href="https://ibbn.net/events/JFEW5Wc4xQ8mKrybIhpp" target="_blank" rel="noopener noreferrer" class="event-cta-btn">
+    Register Now
+  </a>
+</div>

@@ -1,8 +1,6 @@
 ---
 import { getCollection, render } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
-import PhotoGallery from "../../components/PhotoGallery.astro";
-import { getImageUrl } from "../../lib/image";
 
 export async function getStaticPaths() {
   const orgs = await getCollection("organisations");
@@ -28,7 +26,7 @@ const breadcrumbLd = {
   ],
 };
 
-const logoUrl = org.data.logo ? getImageUrl(org.data.logo, { width: 160, height: 160 }) : "";
+const logoUrl = org.data.logo || "";
 ---
 
 <BaseLayout
@@ -66,9 +64,6 @@ const logoUrl = org.data.logo ? getImageUrl(org.data.logo, { width: 160, height:
           <h1 class="text-2xl sm:text-3xl font-bold text-charcoal-800 leading-tight">
             {org.data.name}
           </h1>
-          {org.data.role === "founding-member" && (
-            <p class="text-sm font-medium text-saffron-600 mt-2">Founding Member</p>
-          )}
           <div class="flex flex-col gap-2 mt-3 text-sm">
             {org.data.website && (
               <a
@@ -120,13 +115,6 @@ const logoUrl = org.data.logo ? getImageUrl(org.data.logo, { width: 160, height:
         <Content />
       </div>
 
-      {/* Photo Gallery */}
-      {org.data.photos && org.data.photos.length > 0 && (
-        <div class="mt-16">
-          <h2 class="text-xl font-bold text-charcoal-800 mb-6">Photos</h2>
-          <PhotoGallery photos={org.data.photos} />
-        </div>
-      )}
     </div>
   </section>
 </BaseLayout>

@@ -3,24 +3,27 @@ name: Theravada Buddhist Council of Malaysia
 abbreviation: TBCM
 tradition: theravada
 role: national-org
+foundingYear: 2012
 website: https://www.tbcm.org.my
 contact:
   email: info@tbcm.org.my
-logo: organisations/tbcm/logo.jpg
-description: The umbrella body for Theravada Buddhist organisations in Malaysia, coordinating activities and representing Theravada Buddhist interests.
+logo: /logos/tbcm.png
+description: The umbrella body unifying Theravāda Buddhist organisations across Malaysia, providing representation, coordination, and governance since 2012.
 ---
 
-The Theravada Buddhist Council of Malaysia (TBCM) serves as the umbrella body for Theravada Buddhist organisations across Malaysia. TBCM coordinates activities among its member organisations and represents the interests of the Theravada Buddhist community at the national level.
+The Theravāda Buddhist Council of Malaysia (TBCM) is the umbrella body officially registered in 2012 to unify Theravāda Buddhist organisations across Malaysia, providing representation, coordination, and governance for temples, societies, and practitioners.
 
-As a member of MBCC, TBCM ensures that the perspectives and needs of the Theravada Buddhist community are represented in national-level discussions and initiatives concerning the broader Buddhist community.
+## Key Facts
 
-## Coordination & Representation
+- **Formation:** Established in 2011, officially registered on 9 May 2012.
+- **Headquarters:** A2-16-3A, Arcoris Mont Kiara, No 10, Jalan Kiara, 50480 Kuala Lumpur, Malaysia. Tel No. +6011-17120134
 
-TBCM plays a vital role in coordinating the activities of various Theravada Buddhist temples, centres, and societies across Malaysia, fostering unity and collaboration among diverse Theravada communities.
+## Objectives
 
-## Key Activities
-
-- Coordinating activities among Theravada Buddhist organisations
-- Representing Theravada Buddhist interests at national forums
-- Supporting Theravada monks and meditation teachers
-- Organising national Theravada Buddhist events and observances
+- To unite and promote understanding among Theravada Buddhist organisations and followers in Malaysia through common activities and fellowship programmes.
+- To provide guidance and interpretation on Theravada doctrines and practices among Malaysian Buddhists.
+- To make public statements and influence public opinion on issues affecting the Buddhist community in general, and Theravada community in particular.
+- To address issues of common concern for its constituent members, including being an agency for members to work with Federal and State Government agencies.
+- To maintain contact and enhance cooperation with international Theravada Councils and bodies worldwide to propagate Theravada teachings, practices, arts, culture and heritage.
+- To publish and distribute relevant printed and multi-media resources in pursuance of its objectives.
+- To appeal for, collect and receive funds and to acquire, develop, deal with and maintain facilities and property in pursuance of its objectives.

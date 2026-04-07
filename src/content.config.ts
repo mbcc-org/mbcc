@@ -7,7 +7,7 @@ const organisations = defineCollection({
     name: z.string(),
     abbreviation: z.string().optional(),
     tradition: z.enum(["mahayana", "theravada", "vajrayana"]).optional(),
-    role: z.enum(["founding-member", "national-org"]).optional(),
+    role: z.enum(["national-org"]).optional(),
     foundingYear: z.number().optional(),
     website: z.string().optional(),
     contact: z
@@ -19,14 +19,6 @@ const organisations = defineCollection({
       .optional(),
     logo: z.string().optional(),
     description: z.string().optional(),
-    photos: z
-      .array(
-        z.object({
-          path: z.string(),
-          caption: z.string().optional(),
-        }),
-      )
-      .optional(),
   }),
 });
 
@@ -38,6 +30,7 @@ const events = defineCollection({
     endDate: z.coerce.date().optional(),
     location: z.string().optional(),
     description: z.string().optional(),
+    thumbnail: z.string().optional(),
     photos: z
       .array(
         z.object({

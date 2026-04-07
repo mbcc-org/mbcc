@@ -42,36 +42,133 @@ const timelineEvents = [
 ];
 
 const committee = [
-  { name: "Venerable Sing Kan", title: "President", organisation: "Malaysia Buddhist Association (MBA)" },
-  { name: "Venerable Wei Wu", title: "Deputy President", organisation: "Buddhist Missionary Society Malaysia (BMSM)" },
-  { name: "Dato Dr. Ooi Hock Lye", title: "Vice President", organisation: "Young Buddhist Association of Malaysia (YBAM)" },
-  { name: "Venerable Jue Cheng", title: "Vice President", organisation: "Malaysian Fo Guang Buddhist Association (BLIA)" },
-  { name: "Mr. Lim Kooi Fong", title: "Secretary General", organisation: "Sasana Abhiwurdhi Wardhana Society (SAWS)" },
-  { name: "Mr. Tan Ah Chai", title: "Treasurer", organisation: "Theravada Buddhist Council of Malaysia (TBCM)" },
-  { name: "Lama Karma Samten", title: "Committee Member", organisation: "Vajrayana Buddhist Council of Malaysia (VBCM)" },
+  { name: "Chang Chooi Kwan", title: "President" },
+  { name: "Ng Hui Chen", title: "Deputy President" },
+  { name: "Loh Pai Ling", title: "Vice President" },
+  { name: "Chew Eng Ghee", title: "Vice President" },
+  { name: "Wong Tin Song", title: "Secretary" },
+  { name: "A. Hemadasa", title: "Treasurer" },
 ];
 ---
 
 <BaseLayout
-  title="About MBCC — History, Mission & Committee"
-  description="Learn about the Malaysian Buddhist Consultative Council's history from 1999 to today, our objectives, and the committee members guiding the organisation."
+  title="About MBCC — Mission, Governance & History"
+  description="The Malaysian Buddhist Consultative Council is the national umbrella body uniting six major Buddhist organisations in Malaysia, representing the collective voice of Malaysian Buddhists."
   jsonLd={breadcrumbLd}
 >
-  <!-- Page Header -->
+  <!-- 1. Hero Section (mission-focused) -->
   <section class="bg-cream-100 border-b border-cream-200">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
-      <p class="text-saffron-600 text-sm font-medium tracking-[0.15em] uppercase mb-3">About</p>
+      <p class="text-saffron-600 text-sm font-medium tracking-[0.15em] uppercase mb-3">About MBCC</p>
       <h1 class="text-3xl sm:text-4xl font-bold text-charcoal-800">
-        Our Story & Mission
+        Uniting Malaysia's Buddhist Community
       </h1>
       <p class="mt-4 text-lg text-charcoal-500 max-w-2xl leading-relaxed">
-        From the first discussions in 1999 to official registration in 2015, MBCC has been the collective voice of Malaysia's Buddhist community.
+        The national umbrella body fostering collaboration among diverse Buddhist traditions and representing the collective voice of Malaysian Buddhists.
       </p>
     </div>
   </section>
 
-  <!-- History: Timeline + Prose -->
+  <!-- 2. MBCC Role & Purpose -->
   <section class="py-16 sm:py-20">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl">
+        <h2 class="text-2xl sm:text-3xl font-bold text-charcoal-800 mb-6">Role & Purpose</h2>
+        <div class="space-y-5 text-charcoal-600 leading-relaxed">
+          <p>
+            The Malaysian Buddhist Consultative Council (MBCC) is the national umbrella body uniting six major Buddhist national organisations in Malaysia. Established as a consultative platform, MBCC fosters collaboration among diverse Buddhist traditions and represents the collective voice of the Buddhist community.
+          </p>
+          <p>
+            MBCC and its respective member organizations play a pivotal role in coordinating nationwide initiatives in Dharma propagation, education, welfare, youth development, and cultural activities. Through its specialised committees and member organisations, MBCC strengthens unity among Malaysian Buddhists while contributing to the nation's social and cultural harmony.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. Executive Committee & Governance -->
+  <section class="bg-cream-100 border-y border-cream-200 py-16 sm:py-20">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl">
+        <h2 class="text-2xl sm:text-3xl font-bold text-charcoal-800 mb-6">Executive Committee &amp; Governance</h2>
+        <p class="text-charcoal-600 leading-relaxed">
+          The Council's Executive Committee (Exco), comprising representatives from its member organisations, provides leadership and guidance in shaping MBCC's policies and programs. Acting as the formal channel of representation, the Exco engages with Federal and State governments as well as international counterparts, ensuring that the perspectives and needs of the Buddhist community are recognised at national, regional, and global levels.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. Interfaith & Values -->
+  <section class="py-16 sm:py-20">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl">
+        <h2 class="text-2xl sm:text-3xl font-bold text-charcoal-800 mb-6">Interfaith &amp; Values</h2>
+        <p class="text-charcoal-600 leading-relaxed">
+          By working closely with government agencies, interfaith bodies, and civil society, MBCC continues to uphold Buddhist values while promoting dialogue, mutual respect, and constructive partnership. In doing so, MBCC not only strengthens the Buddhist community but also contributes meaningfully to Malaysia's vision of unity, inclusivity, and shared progress.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. Objectives -->
+  <section class="bg-cream-100 border-y border-cream-200 py-14 sm:py-16">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-10">
+        <h2 class="text-2xl sm:text-3xl font-bold text-charcoal-800">Our Objectives</h2>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-3xl mx-auto">
+        <div class="bg-white rounded-xl p-6 border border-cream-200">
+          <div class="w-10 h-10 rounded-lg bg-saffron-100 flex items-center justify-center mb-4">
+            <svg class="w-5 h-5 text-saffron-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M20.25 8.511c.884.284 1.5 1.128 1.5 2.097v4.286c0 1.136-.847 2.1-1.98 2.193-.34.027-.68.052-1.02.072v3.091l-3-3c-1.354 0-2.694-.055-4.02-.163a2.115 2.115 0 01-.825-.242m9.345-8.334a2.126 2.126 0 00-.476-.095 48.64 48.64 0 00-8.048 0c-1.131.094-1.976 1.057-1.976 2.192v4.286c0 .837.46 1.58 1.155 1.951m9.345-8.334V6.637c0-1.621-1.152-3.026-2.76-3.235A48.455 48.455 0 0011.25 3c-2.115 0-4.198.137-6.24.402-1.608.209-2.76 1.614-2.76 3.235v6.226c0 1.621 1.152 3.026 2.76 3.235.577.075 1.157.14 1.74.194V21l4.155-4.155"/>
+            </svg>
+          </div>
+          <h3 class="font-semibold text-charcoal-800 text-lg">Discuss & Resolve</h3>
+          <p class="text-charcoal-500 mt-2 leading-relaxed text-sm">
+            Discuss and resolve common issues of the Buddhist community through dialogue and collective action among member organisations.
+          </p>
+        </div>
+        <div class="bg-white rounded-xl p-6 border border-cream-200">
+          <div class="w-10 h-10 rounded-lg bg-dharma-50 flex items-center justify-center mb-4">
+            <svg class="w-5 h-5 text-dharma-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 21v-8.25M15.75 21v-8.25M8.25 21v-8.25M3 9l9-6 9 6m-1.5 12V10.332A48.36 48.36 0 0012 9.75c-2.551 0-5.056.2-7.5.582V21M3 21h18M12 6.75h.008v.008H12V6.75z"/>
+            </svg>
+          </div>
+          <h3 class="font-semibold text-charcoal-800 text-lg">Government Coordination</h3>
+          <p class="text-charcoal-500 mt-2 leading-relaxed text-sm">
+            Coordinate with government authorities on matters of the Buddhist religion, serving as the official liaison between the Buddhist community and the state.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. Statistics -->
+  <section class="py-14 sm:py-16">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-2xl font-bold text-charcoal-800 text-center mb-10">The Buddhist Community in Malaysia</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-3xl mx-auto">
+        <div class="text-center p-6 bg-saffron-50 rounded-xl border border-saffron-100">
+          <p class="text-4xl font-bold text-saffron-600">600+</p>
+          <p class="text-sm text-charcoal-500 mt-2">Buddhist Organisations & Temples</p>
+          <p class="text-xs text-charcoal-400 mt-1">Across all Malaysian states</p>
+        </div>
+        <div class="text-center p-6 bg-dharma-50 rounded-xl border border-dharma-100">
+          <p class="text-4xl font-bold text-dharma-500">~600K</p>
+          <p class="text-sm text-charcoal-500 mt-2">Registered Members</p>
+          <p class="text-xs text-charcoal-400 mt-1">Across 6 member organisations</p>
+        </div>
+        <div class="text-center p-6 bg-bodhi-50 rounded-xl border border-bodhi-100">
+          <p class="text-4xl font-bold text-bodhi-500">5.4M</p>
+          <p class="text-sm text-charcoal-500 mt-2">Buddhists in Malaysia</p>
+          <p class="text-xs text-charcoal-400 mt-1">16% of the population</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. Timeline & Founding Story -->
+  <section class="bg-cream-100 border-y border-cream-200 py-16 sm:py-20">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid grid-cols-1 lg:grid-cols-[280px_1fr] gap-12 lg:gap-16">
         <!-- Timeline (left) -->
@@ -123,7 +220,7 @@ const committee = [
               On 29 April 2015, MBCC was officially registered under the Registrar of Society, formalising its role as the representative body for Malaysia's Buddhist community. The Malaysia Buddhist Association (MBA) was designated as the permanent founding member, with its President serving as the permanent President of MBCC — a recognition of MBA's historical role in Malaysian Buddhism.
             </p>
             <p>
-              Today, MBCC brings together seven national Buddhist organisations, collectively representing over 600 Buddhist temples and organisations, approximately 600,000 registered members, and serving the broader community of 5.4 million Buddhists in Malaysia — 16% of the national population.
+              Today, MBCC brings together six national Buddhist organisations, collectively representing over 600 Buddhist temples and organisations, approximately 600,000 registered members, and serving the broader community of 5.4 million Buddhists in Malaysia — 16% of the national population.
             </p>
           </div>
         </div>
@@ -131,65 +228,8 @@ const committee = [
     </div>
   </section>
 
-  <!-- Objectives -->
-  <section class="bg-cream-100 border-y border-cream-200 py-14 sm:py-16">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-10">
-        <h2 class="text-2xl sm:text-3xl font-bold text-charcoal-800">Our Objectives</h2>
-      </div>
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-3xl mx-auto">
-        <div class="bg-white rounded-xl p-6 border border-cream-200">
-          <div class="w-10 h-10 rounded-lg bg-saffron-100 flex items-center justify-center mb-4">
-            <svg class="w-5 h-5 text-saffron-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M20.25 8.511c.884.284 1.5 1.128 1.5 2.097v4.286c0 1.136-.847 2.1-1.98 2.193-.34.027-.68.052-1.02.072v3.091l-3-3c-1.354 0-2.694-.055-4.02-.163a2.115 2.115 0 01-.825-.242m9.345-8.334a2.126 2.126 0 00-.476-.095 48.64 48.64 0 00-8.048 0c-1.131.094-1.976 1.057-1.976 2.192v4.286c0 .837.46 1.58 1.155 1.951m9.345-8.334V6.637c0-1.621-1.152-3.026-2.76-3.235A48.455 48.455 0 0011.25 3c-2.115 0-4.198.137-6.24.402-1.608.209-2.76 1.614-2.76 3.235v6.226c0 1.621 1.152 3.026 2.76 3.235.577.075 1.157.14 1.74.194V21l4.155-4.155"/>
-            </svg>
-          </div>
-          <h3 class="font-semibold text-charcoal-800 text-lg">Discuss & Resolve</h3>
-          <p class="text-charcoal-500 mt-2 leading-relaxed text-sm">
-            Discuss and resolve common issues of the Buddhist community through dialogue and collective action among member organisations.
-          </p>
-        </div>
-        <div class="bg-white rounded-xl p-6 border border-cream-200">
-          <div class="w-10 h-10 rounded-lg bg-dharma-50 flex items-center justify-center mb-4">
-            <svg class="w-5 h-5 text-dharma-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M12 21v-8.25M15.75 21v-8.25M8.25 21v-8.25M3 9l9-6 9 6m-1.5 12V10.332A48.36 48.36 0 0012 9.75c-2.551 0-5.056.2-7.5.582V21M3 21h18M12 6.75h.008v.008H12V6.75z"/>
-            </svg>
-          </div>
-          <h3 class="font-semibold text-charcoal-800 text-lg">Government Coordination</h3>
-          <p class="text-charcoal-500 mt-2 leading-relaxed text-sm">
-            Coordinate with government authorities on matters of the Buddhist religion, serving as the official liaison between the Buddhist community and the state.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Statistics -->
-  <section class="py-14 sm:py-16">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h2 class="text-2xl font-bold text-charcoal-800 text-center mb-10">The Buddhist Community in Malaysia</h2>
-      <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-3xl mx-auto">
-        <div class="text-center p-6 bg-saffron-50 rounded-xl border border-saffron-100">
-          <p class="text-4xl font-bold text-saffron-600">600+</p>
-          <p class="text-sm text-charcoal-500 mt-2">Buddhist Organisations & Temples</p>
-          <p class="text-xs text-charcoal-400 mt-1">Across all Malaysian states</p>
-        </div>
-        <div class="text-center p-6 bg-dharma-50 rounded-xl border border-dharma-100">
-          <p class="text-4xl font-bold text-dharma-500">~600K</p>
-          <p class="text-sm text-charcoal-500 mt-2">Registered Members</p>
-          <p class="text-xs text-charcoal-400 mt-1">Across 7 member organisations</p>
-        </div>
-        <div class="text-center p-6 bg-bodhi-50 rounded-xl border border-bodhi-100">
-          <p class="text-4xl font-bold text-bodhi-500">5.4M</p>
-          <p class="text-sm text-charcoal-500 mt-2">Buddhists in Malaysia</p>
-          <p class="text-xs text-charcoal-400 mt-1">16% of the population</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Committee -->
-  <section class="bg-cream-100 border-t border-cream-200 py-16 sm:py-20">
+  <!-- 8. Committee Member Cards -->
+  <section class="py-16 sm:py-20">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-12">
         <svg class="w-16 h-10 mx-auto mb-4 text-saffron-400/50" viewBox="0 0 40 24" fill="currentColor" aria-hidden="true">
@@ -210,9 +250,32 @@ const committee = [
           <CommitteeMember
             name={member.name}
             title={member.title}
-            organisation={member.organisation}
           />
         ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- 9. Contact Section -->
+  <section class="bg-saffron-50 border-t border-saffron-100 py-16 sm:py-20">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-2xl sm:text-3xl font-bold text-charcoal-800 mb-6">Get In Touch</h2>
+      <p class="font-semibold text-charcoal-700 text-lg">Wong Tin Song</p>
+      <p class="text-charcoal-500 mt-1">Secretary</p>
+      <div class="mt-5 flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4 text-charcoal-600">
+        <a
+          href="mailto:mbcchq@gmail.com"
+          class="hover:text-saffron-600 transition-colors"
+        >
+          mbcchq@gmail.com
+        </a>
+        <span class="hidden sm:inline text-charcoal-300" aria-hidden="true">|</span>
+        <a
+          href="tel:+601161700123"
+          class="hover:text-saffron-600 transition-colors"
+        >
+          +601161700123
+        </a>
       </div>
     </div>
   </section>

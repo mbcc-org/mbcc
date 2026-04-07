@@ -113,6 +113,22 @@ const eventLd = {
         <Content />
       </div>
 
+      <script>
+        import GLightbox from "glightbox";
+        import "glightbox/dist/css/glightbox.min.css";
+
+        const initLightbox = () =>
+          GLightbox({
+            selector: ".glightbox",
+            touchNavigation: true,
+            loop: false,
+            closeOnOutsideClick: true,
+          });
+
+        document.addEventListener("astro:page-load", initLightbox);
+        initLightbox();
+      </script>
+
       {/* Photo Gallery */}
       {event.data.photos && event.data.photos.length > 0 && (
         <div class="mt-14">

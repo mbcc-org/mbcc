@@ -1,18 +1,13 @@
 ---
-import { getImageUrl } from "../lib/image";
-
 interface Props {
   name: string;
   abbreviation?: string;
   description?: string;
   logo?: string;
   slug: string;
-  role?: "founding-member" | "national-org";
 }
 
-const { name, abbreviation, description, logo, slug, role } = Astro.props;
-
-const logoUrl = logo ? getImageUrl(logo, { width: 120, height: 120 }) : "";
+const { name, abbreviation, description, logo, slug } = Astro.props;
 ---
 
 <a
@@ -21,9 +16,9 @@ const logoUrl = logo ? getImageUrl(logo, { width: 120, height: 120 }) : "";
 >
   <div class="p-5 sm:p-6">
     <div class="flex items-start gap-4">
-      {logoUrl ? (
+      {logo ? (
         <img
-          src={logoUrl}
+          src={logo}
           alt={`${name} logo`}
           class="w-14 h-14 rounded-lg object-cover bg-cream-100 shrink-0"
           loading="lazy"
@@ -41,9 +36,6 @@ const logoUrl = logo ? getImageUrl(logo, { width: 120, height: 120 }) : "";
           {name}
           {abbreviation && (
             <span class="text-charcoal-400 font-normal text-sm"> ({abbreviation})</span>
-          )}
-          {role === "founding-member" && (
-            <span class="text-xs font-medium text-saffron-600 ml-1">Founding Member</span>
           )}
         </h3>
       </div>

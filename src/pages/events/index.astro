@@ -48,7 +48,7 @@ const breadcrumbLd = {
               date={event.data.date}
               description={event.data.description}
               slug={event.id}
-              thumbnail={event.data.photos?.[0]?.path}
+              thumbnail={event.data.thumbnail || event.data.photos?.[0]?.path}
               location={event.data.location}
             />
           ))}

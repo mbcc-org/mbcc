@@ -4,8 +4,6 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 import OrgCard from "../../components/OrgCard.astro";
 
 const allOrgs = await getCollection("organisations");
-const nationalOrgs = allOrgs.filter((org) => org.data.role !== "founding-member");
-const foundingMember = allOrgs.find((org) => org.data.role === "founding-member");
 
 const siteUrl = import.meta.env.SITE_URL || "https://mbcc.my";
 
@@ -21,7 +19,7 @@ const breadcrumbLd = {
 
 <BaseLayout
   title="Member Organisations — MBCC"
-  description="The seven national Buddhist organisations that make up the Malaysian Buddhist Consultative Council, representing Mahayana, Theravada, and Vajrayana traditions."
+  description="The six national Buddhist organisations that make up the Malaysian Buddhist Consultative Council, representing Mahayana, Theravada, and Vajrayana traditions."
   jsonLd={breadcrumbLd}
 >
   <!-- Page Header -->
@@ -32,7 +30,7 @@ const breadcrumbLd = {
         Member Organisations
       </h1>
       <p class="mt-4 text-lg text-charcoal-500 max-w-2xl leading-relaxed">
-        Seven national Buddhist organisations united under MBCC, representing the three major Buddhist traditions in Malaysia.
+        Six national Buddhist organisations united under MBCC, representing the three major Buddhist traditions in Malaysia.
       </p>
     </div>
   </section>
@@ -40,27 +38,14 @@ const breadcrumbLd = {
   <section class="py-14 sm:py-20">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
-        {foundingMember && (
+        {allOrgs.map((org) => (
           <OrgCard
-            name={foundingMember.data.name}
-            abbreviation={foundingMember.data.abbreviation}
-            description={foundingMember.data.description}
-            logo={foundingMember.data.logo}
-            slug={foundingMember.id}
-            role={foundingMember.data.role}
+            name={org.data.name}
+            abbreviation={org.data.abbreviation}
+            description={org.data.description}
+            logo={org.data.logo}
+            slug={org.id}
           />
-        )}
-        {nationalOrgs.map((org, i) => (
-          <div class:list={[i === nationalOrgs.length - 1 && "sm:col-start-1 lg:col-start-2"]}>
-            <OrgCard
-              name={org.data.name}
-              abbreviation={org.data.abbreviation}
-              description={org.data.description}
-              logo={org.data.logo}
-              slug={org.id}
-              role={org.data.role}
-            />
-          </div>
         ))}
       </div>
     </div>

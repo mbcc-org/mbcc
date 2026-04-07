@@ -7,21 +7,12 @@ website: https://www.fgs.org.my
 contact:
   email: info@fgs.org.my
   address: "Fo Guang Shan Dong Zen Temple, Jenjarom, Selangor, Malaysia"
-logo: organisations/blia/logo.jpg
-description: Affiliated with the global Fo Guang Shan Buddhist order, BLIA promotes Humanistic Buddhism through cultural, educational, and charitable activities.
+logo: /logos/blia.png
+description: Part of the global Fo Guang Shan network, promoting Humanistic Buddhism through education, culture, charity, and spiritual practice in Malaysia.
 ---
 
-The Malaysian Fo Guang Buddhist Association (BLIA) is the Malaysian chapter of the global Buddha's Light International Association, founded by Venerable Master Hsing Yun. BLIA promotes Humanistic Buddhism — a modern approach that emphasises applying Buddhist principles to daily life and community service.
+The Malaysian Fo Guang Buddhist Association is part of the global network of Fo Guang Shan, a major international Buddhist order founded in Taiwan by Venerable Master Hsing Yun. Its mission is rooted in Humanistic Buddhism, emphasising the integration of Buddhist teachings into everyday life through education, culture, charity, and spiritual practice.
 
-BLIA operates the Fo Guang Shan Dong Zen Temple in Jenjarom, Selangor, one of the largest Buddhist temples in Southeast Asia. The association is active in cultural events, educational programmes, and humanitarian relief efforts both in Malaysia and internationally.
+Closely connected is the Buddhist Light International Association (BLIA), which serves as the lay Buddhist arm of Fo Guang Shan. BLIA was established to unite lay practitioners worldwide under the vision of promoting peace, compassion, and harmony. In Malaysia, BLIA collaborates with Fo Guang Shan temples and associations to organise Dharma talks, cultural events, youth activities, and charitable outreach.
 
-## Humanistic Buddhism
-
-Humanistic Buddhism encourages practitioners to bring the teachings of the Buddha into contemporary life, focusing on serving others, building harmonious communities, and cultivating wisdom and compassion in everyday interactions.
-
-## Key Activities
-
-- Operating Buddhist cultural and educational centres
-- Youth leadership and development programmes
-- International cultural exchange events
-- Community welfare and disaster relief initiatives
+Both organisations often work hand-in-hand: Fo Guang Shan provides the spiritual and monastic guidance, while BLIA mobilises lay members to bring Buddhist values into society through service and cultural activities.

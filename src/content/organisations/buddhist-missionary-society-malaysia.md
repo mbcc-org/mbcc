@@ -7,22 +7,16 @@ foundingYear: 1962
 website: https://www.bmsm.org.my
 contact:
   email: admin@bmsm.org.my
-  address: "Buddhist Maha Vihara, 123 Jalan Berhala, 50470 Kuala Lumpur, Malaysia"
-logo: organisations/bmsm/logo.jpg
-description: Dedicated to the propagation of Theravada Buddhism through education, publication, and community outreach since 1962.
+logo: /logos/bmsm.png
+description: One of Malaysia's oldest Buddhist organisations, spreading Theravāda Buddhism through publishing, education, and interfaith dialogue since 1962.
 ---
 
-The Buddhist Missionary Society Malaysia (BMSM) was established in 1962 at the Buddhist Maha Vihara in Kuala Lumpur. As a Theravada Buddhist organisation, BMSM has been at the forefront of Buddhist education and outreach in Malaysia for over six decades.
+The Buddhist Missionary Society Malaysia (BMSM) is one of the oldest and most established Buddhist organisations in Malaysia. Founded in 1962 by the late Venerable K. Sri Dhammananda, it has played a pivotal role in spreading Theravāda Buddhism and promoting interfaith understanding in the country.
 
-BMSM is renowned for its extensive publication programme, having produced and distributed countless books, pamphlets, and educational materials on Buddhism. The society has played a key role in making Theravada teachings accessible to English-speaking Malaysians.
+## Key Features
 
-## Publications & Education
-
-BMSM's publication efforts have made it one of the most prolific Buddhist publishers in Southeast Asia. The society distributes free Dhamma books and materials to individuals and institutions worldwide.
-
-## Key Activities
-
-- Publishing and distributing Buddhist literature
-- Conducting Dhamma classes and meditation retreats
-- Sunday Dhamma school programmes for children and youth
-- Inter-religious dialogue and community service
+- **Theravāda Tradition:** Rooted in the teachings of the Pali Canon, emphasising mindfulness, meditation, and ethical living.
+- **Educational Outreach:** Publishes books, pamphlets, and translations of Buddhist texts to make the Dhamma accessible to Malaysians in English, Malay, and Chinese.
+- **Community Engagement:** Organises Dharma talks, meditation retreats, Sunday schools, and youth activities.
+- **Interfaith Dialogue:** Actively participates in Malaysian inter-religious councils, promoting harmony among diverse faiths.
+- **Charitable Work:** Supports welfare projects, disaster relief, and community service initiatives.

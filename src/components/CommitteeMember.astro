@@ -4,11 +4,10 @@ import { getImageUrl } from "../lib/image";
 interface Props {
   name: string;
   title: string;
-  organisation?: string;
   photo?: string;
 }
 
-const { name, title, organisation, photo } = Astro.props;
+const { name, title, photo } = Astro.props;
 
 const photoUrl = photo ? getImageUrl(photo, { width: 200, height: 200 }) : "";
 const initials = name
@@ -35,7 +34,4 @@ const initials = name
 
   <h3 class="font-semibold text-charcoal-800 mt-4 leading-tight">{name}</h3>
   <p class="text-sm text-saffron-600 mt-1">{title}</p>
-  {organisation && (
-    <p class="text-xs text-charcoal-400 mt-0.5">{organisation}</p>
-  )}
 </div>
