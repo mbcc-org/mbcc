@@ -6,7 +6,8 @@ description: >-
   The National Wesak Conference 2026 aims to elevate the annual Wesak
   Celebration from a purely religious observance to a national intellectual
   and spiritual conversation.
-thumbnail: posters/buddhist-principles-and-the-practices-of-madani-2026.jpeg
+thumbnail: /posters/buddhist-principles-and-the-practices-of-madani-2026.jpeg
+registrationUrl: https://ibbn.net/events/iOv60xjo4ushuJgL1rw4
 ---
 
 <style>

@@ -2,6 +2,7 @@
 import { getCollection, render } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import PhotoGallery from "../../components/PhotoGallery.astro";
+import { getImageUrl } from "../../lib/image";
 
 export async function getStaticPaths() {
   const events = await getCollection("events");
@@ -30,6 +31,10 @@ const formattedEndDate = event.data.endDate?.toLocaleDateString("en-MY", {
   day: "numeric",
 });
 
+const thumbUrl = event.data.thumbnail
+  ? getImageUrl(event.data.thumbnail, { width: 1200, height: 600 })
+  : null;
+
 const breadcrumbLd = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
@@ -47,10 +52,7 @@ const eventLd = {
   startDate: event.data.date.toISOString(),
   ...(event.data.endDate && { endDate: event.data.endDate.toISOString() }),
   ...(event.data.location && {
-    location: {
-      "@type": "Place",
-      name: event.data.location,
-    },
+    location: { "@type": "Place", name: event.data.location },
   }),
   ...(event.data.description && { description: event.data.description }),
   organizer: {
@@ -66,88 +68,231 @@ const eventLd = {
   description={event.data.description || event.data.title}
   jsonLd={[breadcrumbLd, eventLd]}
 >
-  <!-- Page Header -->
-  <section class="bg-cream-100 border-b border-cream-200">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
+  <!-- Hero Header -->
+  <section class="relative overflow-hidden bg-charcoal-800 min-h-[280px] sm:min-h-[340px] flex items-end">
+    {thumbUrl && (
+      <div class="absolute inset-0">
+        <img src={thumbUrl} alt="" class="w-full h-full object-cover opacity-20" aria-hidden="true" />
+        <div class="absolute inset-0" style="background: linear-gradient(to top, rgba(30,27,24,0.98) 0%, rgba(30,27,24,0.7) 50%, rgba(30,27,24,0.4) 100%);"></div>
+      </div>
+    )}
+
+    <div class="relative w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pb-10 pt-16">
       <!-- Breadcrumb -->
-      <nav class="mb-6" aria-label="Breadcrumb">
-        <ol class="flex items-center gap-2 text-sm text-charcoal-400">
-          <li><a href="/events" class="hover:text-dharma-500 transition-colors">Events</a></li>
+      <nav class="mb-5" aria-label="Breadcrumb">
+        <ol class="flex items-center gap-2 text-sm text-white/40">
+          <li><a href="/events" class="hover:text-white/70 transition-colors">Events</a></li>
           <li aria-hidden="true">/</li>
-          <li class="text-charcoal-600 truncate max-w-[200px]">{event.data.title}</li>
+          <li class="text-white/60 truncate max-w-[240px]">{event.data.title}</li>
         </ol>
       </nav>
 
-      <h1 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-charcoal-800 leading-tight">
-        {event.data.title}
-      </h1>
+      <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6">
+        <div class="flex-1 min-w-0">
+          <h1 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-white leading-tight">
+            {event.data.title}
+          </h1>
 
-      <div class="flex flex-wrap items-center gap-4 mt-4 text-sm text-charcoal-500">
-        <div class="flex items-center gap-1.5">
-          <svg class="w-4 h-4 text-saffron-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5"/>
-          </svg>
-          <time datetime={event.data.date.toISOString().split("T")[0]}>
-            {formattedDate}
-            {formattedEndDate && ` — ${formattedEndDate}`}
-          </time>
+          <div class="flex flex-wrap items-center gap-2 mt-4">
+            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/10 text-white/80 text-xs font-medium border border-white/10">
+              <svg class="w-3.5 h-3.5 text-saffron-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5"/>
+              </svg>
+              <time datetime={event.data.date.toISOString().split("T")[0]}>
+                {formattedDate}{formattedEndDate && ` — ${formattedEndDate}`}
+              </time>
+            </span>
+            {event.data.location && (
+              <span class="inline-flex items-start gap-1.5 px-3 py-1 rounded-full bg-white/10 text-white/80 text-xs font-medium border border-white/10">
+                <svg class="w-3.5 h-3.5 text-saffron-400 shrink-0 mt-px" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/>
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"/>
+                </svg>
+                {event.data.location}
+              </span>
+            )}
+          </div>
         </div>
 
-        {event.data.location && (
-          <div class="flex items-center gap-1.5">
-            <svg class="w-4 h-4 text-saffron-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/>
-              <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"/>
+        {event.data.registrationUrl && (
+          <a
+            href={event.data.registrationUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="lg:hidden inline-flex items-center gap-2 px-5 py-2.5 bg-saffron-500 hover:bg-saffron-400 text-white text-sm font-semibold rounded-lg transition-colors shrink-0 self-start sm:self-end"
+          >
+            Register Now
+            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"/>
             </svg>
-            <span>{event.data.location}</span>
-          </div>
+          </a>
         )}
       </div>
     </div>
   </section>
 
+  <!-- Content -->
   <section class="py-12 sm:py-16">
-    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-      <!-- Content -->
-      <div class="prose max-w-none">
-        <Content />
-      </div>
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="lg:grid lg:grid-cols-[1fr_300px] lg:gap-12 xl:gap-16">
 
-      <script>
-        import GLightbox from "glightbox";
-        import "glightbox/dist/css/glightbox.min.css";
+        <!-- Main content -->
+        <div>
+          <style is:global>
+            @media (min-width: 1024px) {
+              .event-cta-btn { display: none !important; }
+              .event-poster-wrap { margin-top: 0 !important; }
+              .prose :first-child { margin-top: 0 !important; }
+            }
+            .prose h2 {
+              font-size: 1.125rem;
+              font-weight: 700;
+              color: var(--color-charcoal-800);
+              margin-top: 2em;
+              margin-bottom: 0.75em;
+              padding-bottom: 0.5em;
+              border-bottom: 1px solid var(--color-cream-200);
+            }
+            .prose h3 {
+              font-size: 1rem;
+              font-weight: 600;
+              color: var(--color-charcoal-700);
+              margin-top: 1.5em;
+              margin-bottom: 0.5em;
+            }
+            .prose p {
+              color: var(--color-charcoal-600);
+              line-height: 1.8;
+            }
+            .prose ul {
+              color: var(--color-charcoal-600);
+            }
+            .prose a:not(.event-cta-btn):not(.glightbox) {
+              color: var(--color-saffron-600);
+              text-decoration: underline;
+              text-underline-offset: 2px;
+            }
+            .prose a:not(.event-cta-btn):not(.glightbox):hover {
+              color: var(--color-saffron-700);
+            }
+            .prose strong {
+              color: var(--color-charcoal-800);
+              font-weight: 600;
+            }
+            .prose blockquote {
+              border-left-color: var(--color-saffron-400);
+              background: var(--color-saffron-50);
+              padding: 0.75em 1em;
+              border-radius: 0 0.5rem 0.5rem 0;
+              color: var(--color-charcoal-600);
+            }
+            .event-poster-wrap img {
+              border-radius: 0.75rem;
+              box-shadow: 0 4px 24px rgba(0,0,0,0.10);
+            }
+          </style>
 
-        const initLightbox = () =>
-          GLightbox({
-            selector: ".glightbox",
-            touchNavigation: true,
-            loop: false,
-            closeOnOutsideClick: true,
-          });
+          <div class="prose max-w-none">
+            <Content />
+          </div>
 
-        document.addEventListener("astro:page-load", initLightbox);
-        initLightbox();
-      </script>
+          <script>
+            import GLightbox from "glightbox";
+            import "glightbox/dist/css/glightbox.min.css";
 
-      {/* Photo Gallery */}
-      {event.data.photos && event.data.photos.length > 0 && (
-        <div class="mt-14">
-          <h2 class="text-xl font-bold text-charcoal-800 mb-6">Event Photos</h2>
-          <PhotoGallery photos={event.data.photos} />
+            const initLightbox = () =>
+              GLightbox({
+                selector: ".glightbox",
+                touchNavigation: true,
+                loop: false,
+                closeOnOutsideClick: true,
+              });
+
+            document.addEventListener("astro:page-load", initLightbox);
+            initLightbox();
+          </script>
+
+          {event.data.photos && event.data.photos.length > 0 && (
+            <div class="mt-14">
+              <h2 class="text-lg font-bold text-charcoal-800 mb-6 pb-3 border-b border-cream-200">Event Photos</h2>
+              <PhotoGallery photos={event.data.photos} />
+            </div>
+          )}
+
+          <div class="mt-14 pt-6 border-t border-cream-200">
+            <a
+              href="/events"
+              class="inline-flex items-center gap-1.5 text-sm text-charcoal-400 hover:text-charcoal-700 transition-colors"
+            >
+              <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 15.75L3 12m0 0l3.75-3.75M3 12h18" />
+              </svg>
+              All events
+            </a>
+          </div>
         </div>
-      )}
 
-      <!-- Back link -->
-      <div class="mt-14 pt-8 border-t border-cream-200">
-        <a
-          href="/events"
-          class="inline-flex items-center text-sm text-charcoal-400 hover:text-dharma-500 transition-colors"
-        >
-          <svg class="w-4 h-4 mr-1.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 15.75L3 12m0 0l3.75-3.75M3 12h18" />
-          </svg>
-          All events
-        </a>
+        <!-- Sidebar -->
+        <aside class="hidden lg:block">
+          <div class="sticky top-[86px] space-y-3">
+
+            <!-- Event details card -->
+            <div class="rounded-xl border border-cream-200 overflow-hidden">
+              <div class="bg-charcoal-800 px-5 py-4">
+                <p class="text-xs font-bold uppercase tracking-[0.15em] text-cream-300">Event Details</p>
+              </div>
+              <div class="bg-white divide-y divide-cream-100">
+                <div class="flex items-start gap-3 px-5 py-4">
+                  <div class="w-8 h-8 rounded-lg bg-saffron-50 flex items-center justify-center shrink-0 mt-0.5">
+                    <svg class="w-4 h-4 text-saffron-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5"/>
+                    </svg>
+                  </div>
+                  <div>
+                    <p class="text-xs font-medium text-charcoal-400 mb-0.5">Date</p>
+                    <time class="text-sm font-semibold text-charcoal-800 leading-snug" datetime={event.data.date.toISOString().split("T")[0]}>
+                      {formattedDate}
+                    </time>
+                    {formattedEndDate && (
+                      <p class="text-xs text-charcoal-500 mt-0.5">to {formattedEndDate}</p>
+                    )}
+                  </div>
+                </div>
+                {event.data.location && (
+                  <div class="flex items-start gap-3 px-5 py-4">
+                    <div class="w-8 h-8 rounded-lg bg-saffron-50 flex items-center justify-center shrink-0 mt-0.5">
+                      <svg class="w-4 h-4 text-saffron-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/>
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"/>
+                      </svg>
+                    </div>
+                    <div>
+                      <p class="text-xs font-medium text-charcoal-400 mb-0.5">Location</p>
+                      <p class="text-sm font-semibold text-charcoal-800 leading-snug">{event.data.location}</p>
+                    </div>
+                  </div>
+                )}
+              </div>
+            </div>
+
+            {event.data.registrationUrl && (
+              <a
+                href={event.data.registrationUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="flex items-center justify-center gap-2 w-full px-5 py-3 bg-saffron-500 hover:bg-saffron-600 text-white text-sm font-semibold rounded-xl transition-colors shadow-sm"
+              >
+                Register Now
+                <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"/>
+                </svg>
+              </a>
+            )}
+
+
+          </div>
+        </aside>
+
       </div>
     </div>
   </section>

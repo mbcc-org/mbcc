@@ -31,6 +31,7 @@ const events = defineCollection({
     location: z.string().optional(),
     description: z.string().optional(),
     thumbnail: z.string().optional(),
+    registrationUrl: z.string().optional(),
     photos: z
       .array(
         z.object({

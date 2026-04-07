@@ -5,7 +5,7 @@ export function getImageUrl(
   options?: { width?: number; height?: number },
 ): string {
   if (!path) return "";
-  if (path.startsWith("http")) return path;
+  if (path.startsWith("http") || path.startsWith("/")) return path;
 
   // Dev fallback: use Picsum with seeded URLs for consistent images
   if (!IMAGE_BASE_URL) {

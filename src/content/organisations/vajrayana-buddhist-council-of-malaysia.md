@@ -8,7 +8,7 @@ website: https://www.vbcm.org.my
 contact:
   email: info@vbcm.org.my
 logo: /logos/vbcm.png
-description: The national body representing Tibetan Vajrayāna Buddhist traditions in Malaysia, uniting the four major schools: Nyingma, Kagyu, Sakya, and Gelug.
+description: "The national body representing Tibetan Vajrayāna Buddhist traditions in Malaysia, uniting the four major schools: Nyingma, Kagyu, Sakya, and Gelug."
 ---
 
 The Vajrayāna Buddhist Council of Malaysia (VBCM) is the national umbrella body representing Tibetan Vajrayāna Buddhist traditions in Malaysia, founded in 1998 and registered in 2002. It unites the four major Tibetan schools (Nyingma, Kagyu, Sakya, Gelug).

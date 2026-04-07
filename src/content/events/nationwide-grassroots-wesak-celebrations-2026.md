@@ -6,7 +6,8 @@ description: >-
   Registration for the Sambutan Hari Wesak 2026 Peringkat Akar Umbi is now
   open. Every participating Buddhist organization, temple or vihara across
   Malaysia will receive support from the Federal Government.
-thumbnail: posters/nationwide-grassroots-wesak-celebrations-2026.jpeg
+thumbnail: /posters/nationwide-grassroots-wesak-celebrations-2026.jpeg
+registrationUrl: https://ibbn.net/events/JFEW5Wc4xQ8mKrybIhpp
 ---
 
 <style>
