@@ -17,7 +17,7 @@ const {
   jsonLd,
 } = Astro.props;
 
-const siteUrl = import.meta.env.SITE_URL || Astro.site?.toString()?.replace(/\/$/, "") || "https://mbcc.my";
+const siteUrl = import.meta.env.SITE_URL || Astro.site?.toString()?.replace(/\/$/, "") || "https://mbcc.org.my";
 const fullOgImage = ogImage.startsWith("http") ? ogImage : `${siteUrl}${ogImage}`;
 const fullCanonicalUrl = canonicalUrl || new URL(Astro.url.pathname, siteUrl).toString();
 

@@ -13,7 +13,7 @@ export async function getStaticPaths() {
 const { org } = Astro.props;
 const { Content } = await render(org);
 
-const siteUrl = import.meta.env.SITE_URL || "https://mbcc.my";
+const siteUrl = import.meta.env.SITE_URL || "https://mbcc.org.my";
 
 
 const breadcrumbLd = {

@@ -15,7 +15,7 @@ export async function getStaticPaths() {
 const { event } = Astro.props;
 const { Content } = await render(event);
 
-const siteUrl = import.meta.env.SITE_URL || "https://mbcc.my";
+const siteUrl = import.meta.env.SITE_URL || "https://mbcc.org.my";
 
 const formattedDate = event.data.date.toLocaleDateString("en-MY", {
   weekday: "long",

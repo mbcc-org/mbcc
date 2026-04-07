@@ -4,7 +4,7 @@ import tailwindcss from "@tailwindcss/vite";
 import sitemap from "@astrojs/sitemap";
 
 export default defineConfig({
-  site: "https://mbcc.my",
+  site: "https://mbcc.org.my",
   integrations: [sitemap()],
   vite: {
     plugins: [tailwindcss()],

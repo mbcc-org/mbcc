@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://mbcc.my/sitemap-index.xml
+Sitemap: https://mbcc.org.my/sitemap-index.xml

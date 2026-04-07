@@ -12,7 +12,7 @@ const recentEvents = allEvents
   .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
   .slice(0, 2);
 
-const siteUrl = import.meta.env.SITE_URL || "https://mbcc.my";
+const siteUrl = import.meta.env.SITE_URL || "https://mbcc.org.my";
 
 const organizationLd = {
   "@context": "https://schema.org",
