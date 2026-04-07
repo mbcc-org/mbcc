@@ -66,43 +66,68 @@ const breadcrumbLd = {
   jsonLd={[organizationLd, websiteLd, breadcrumbLd]}
 >
   <!-- Wesak 2026 Banner -->
-  <div class="relative overflow-hidden py-7 sm:py-8 text-center" style="background: linear-gradient(135deg, #e8a317 0%, #d4920b 50%, #b87d09 100%);">
-    <!-- Decorative background rings -->
+  <div class="wesak-banner relative overflow-hidden text-center" style="background: #92400e;">
+    <!-- Background image with fade-in -->
+    <img
+      src="/images/malaysia-buddhist.png"
+      alt=""
+      class="wesak-bg-img absolute inset-0 w-full h-full object-cover"
+      aria-hidden="true"
+      loading="eager"
+    />
+
+    <!-- Gold overlay to blend image with saffron palette -->
+    <div class="absolute inset-0 pointer-events-none" style="background: linear-gradient(135deg, rgba(146,64,14,0.72) 0%, rgba(217,119,6,0.65) 40%, rgba(245,158,11,0.60) 60%, rgba(146,64,14,0.72) 100%);"></div>
+
+    <!-- Shimmer sweep -->
+    <div class="wesak-shimmer absolute inset-0 pointer-events-none" aria-hidden="true"></div>
+
+    <!-- Bottom vignette for text legibility -->
+    <div class="absolute inset-0 pointer-events-none" style="background: linear-gradient(to bottom, rgba(60,20,0,0.25) 0%, transparent 40%, transparent 60%, rgba(60,20,0,0.35) 100%);" aria-hidden="true"></div>
+
+    <!-- Side rings -->
     <div class="absolute inset-0 pointer-events-none" aria-hidden="true">
-      <div class="absolute -left-16 top-1/2 -translate-y-1/2 w-64 h-64 rounded-full border-2 border-white/10"></div>
-      <div class="absolute -left-8 top-1/2 -translate-y-1/2 w-40 h-40 rounded-full border border-white/10"></div>
-      <div class="absolute -right-16 top-1/2 -translate-y-1/2 w-64 h-64 rounded-full border-2 border-white/10"></div>
-      <div class="absolute -right-8 top-1/2 -translate-y-1/2 w-40 h-40 rounded-full border border-white/10"></div>
+      <div class="absolute -left-24 top-1/2 -translate-y-1/2 w-96 h-96 rounded-full border border-white/[0.07]"></div>
+      <div class="absolute -left-12 top-1/2 -translate-y-1/2 w-56 h-56 rounded-full border border-white/[0.07]"></div>
+      <div class="absolute -right-24 top-1/2 -translate-y-1/2 w-96 h-96 rounded-full border border-white/[0.07]"></div>
+      <div class="absolute -right-12 top-1/2 -translate-y-1/2 w-56 h-56 rounded-full border border-white/[0.07]"></div>
     </div>
 
-    <div class="relative">
-      <p class="text-xs font-bold tracking-[0.25em] uppercase text-amber-900/60 mb-2 sm:mb-3">Upcoming Events</p>
+    <div class="relative py-10 sm:py-12 px-4">
+      <!-- Eyebrow -->
+      <p class="text-[10px] sm:text-xs font-bold tracking-[0.35em] uppercase mb-3 sm:mb-4 text-white/55">Upcoming Events</p>
 
-      <!-- Desktop -->
-      <div class="hidden sm:flex items-center justify-center gap-4 flex-wrap">
-        <span class="text-xl font-bold text-white tracking-tight">National Wesak 2026</span>
-        <span class="text-amber-900/40 font-light" aria-hidden="true">|</span>
-        <a href="/events/national-wesak-conference-2026" class="inline-flex items-center gap-2 bg-white/20 hover:bg-white/30 text-white text-base font-semibold px-5 py-2 rounded-full transition-all duration-150 hover:scale-105">
-          Conference
-          <span class="text-amber-100 font-normal text-sm">23 May</span>
+      <!-- Title -->
+      <div class="mb-5 sm:mb-7">
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-none" style="font-family: 'Cormorant', Georgia, serif; letter-spacing: -0.01em; text-shadow: 0 2px 20px rgba(80,30,0,0.5);">
+          National Wesak 2026
+        </h2>
+        <p class="mt-2 text-[10px] sm:text-xs font-semibold tracking-[0.25em] uppercase text-white/70">Celebrating Together Across Malaysia</p>
+      </div>
+
+      <!-- Desktop pills -->
+      <div class="hidden sm:flex items-center justify-center gap-3 flex-wrap">
+        <a href="/events/national-wesak-conference-2026" class="inline-flex items-center gap-3 px-6 py-2.5 rounded-full hover:scale-105 transition-all duration-150" style="background: rgba(22,10,2,0.72); backdrop-filter: blur(6px); box-shadow: 0 2px 12px rgba(0,0,0,0.25);">
+          <span class="text-sm font-semibold text-white">Conference</span>
+          <span class="text-xs font-bold text-amber-300" style="letter-spacing:0.03em;">23 May</span>
         </a>
-        <a href="/events/nationwide-grassroots-wesak-celebrations-2026" class="inline-flex items-center gap-2 bg-white/20 hover:bg-white/30 text-white text-base font-semibold px-5 py-2 rounded-full transition-all duration-150 hover:scale-105">
-          Celebrations
-          <span class="text-amber-100 font-normal text-sm">31 May</span>
+        <span class="text-white/20 text-sm select-none" aria-hidden="true">◇</span>
+        <a href="/events/nationwide-grassroots-wesak-celebrations-2026" class="inline-flex items-center gap-3 px-6 py-2.5 rounded-full hover:scale-105 transition-all duration-150" style="background: rgba(22,10,2,0.72); backdrop-filter: blur(6px); box-shadow: 0 2px 12px rgba(0,0,0,0.25);">
+          <span class="text-sm font-semibold text-white">Celebrations</span>
+          <span class="text-xs font-bold text-amber-300" style="letter-spacing:0.03em;">31 May</span>
         </a>
       </div>
 
-      <!-- Mobile -->
-      <div class="sm:hidden flex flex-col items-center gap-3">
-        <span class="text-lg font-bold text-white tracking-tight">National Wesak 2026</span>
-        <div class="flex gap-2">
-          <a href="/events/national-wesak-conference-2026" class="inline-flex items-center gap-1 bg-white/20 hover:bg-white/30 text-white text-sm font-semibold px-4 py-2 rounded-full transition-colors">
-            Conference <span class="text-amber-100 font-normal">23 May</span>
-          </a>
-          <a href="/events/nationwide-grassroots-wesak-celebrations-2026" class="inline-flex items-center gap-1 bg-white/20 hover:bg-white/30 text-white text-sm font-semibold px-4 py-2 rounded-full transition-colors">
-            Celebrations <span class="text-amber-100 font-normal">31 May</span>
-          </a>
-        </div>
+      <!-- Mobile pills -->
+      <div class="sm:hidden flex gap-2.5 justify-center">
+        <a href="/events/national-wesak-conference-2026" class="inline-flex items-center gap-2 px-4 py-2 rounded-full transition-colors" style="background: rgba(22,10,2,0.72); backdrop-filter: blur(6px);">
+          <span class="text-xs font-semibold text-white">Conference</span>
+          <span class="text-[10px] font-bold text-amber-300">23 May</span>
+        </a>
+        <a href="/events/nationwide-grassroots-wesak-celebrations-2026" class="inline-flex items-center gap-2 px-4 py-2 rounded-full transition-colors" style="background: rgba(22,10,2,0.72); backdrop-filter: blur(6px);">
+          <span class="text-xs font-semibold text-white">Celebrations</span>
+          <span class="text-[10px] font-bold text-amber-300">31 May</span>
+        </a>
       </div>
     </div>
   </div>
@@ -264,4 +289,27 @@ const breadcrumbLd = {
       </div>
     </section>
   )}
+<style>
+  .wesak-bg-img {
+    animation: wesak-fadein 1.2s ease-out both;
+  }
+  @keyframes wesak-fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+  }
+  .wesak-shimmer {
+    background: linear-gradient(
+      108deg,
+      transparent 28%,
+      rgba(255, 255, 255, 0.15) 45%,
+      rgba(255, 255, 255, 0.06) 50%,
+      transparent 68%
+    );
+    animation: wesak-shimmer 6s ease-in-out infinite;
+  }
+  @keyframes wesak-shimmer {
+    0% { transform: translateX(-150%) skewX(-12deg); }
+    100% { transform: translateX(250%) skewX(-12deg); }
+  }
+</style>
 </BaseLayout>
