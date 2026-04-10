@@ -5,8 +5,9 @@ role: national-org
 foundingYear: 1970
 website: https://www.ybam.org.my
 contact:
-  email: info@ybam.org.my
-  address: "No. 9, Jalan SS25/24, Taman Bukit Emas, 47301 Petaling Jaya, Selangor, Malaysia"
+  email: ybam@ybam.org.my
+  phone: "+603-78049154/57 | +60 18-255 5867"
+  address: "9, Jalan SS 25/24, Taman Mayang, 47301 Petaling Jaya, Selangor"
 logo: /logos/ybam.png
 description: Malaysia's leading Buddhist youth organisation, uniting over 270 member organisations to cultivate wisdom, compassion, and gratitude since 1970.
 ---

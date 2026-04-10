@@ -21,8 +21,8 @@ const breadcrumbLd = {
   "@type": "BreadcrumbList",
   itemListElement: [
     { "@type": "ListItem", position: 1, name: "Home", item: siteUrl },
-    { "@type": "ListItem", position: 2, name: "Organisations", item: `${siteUrl}/organisations` },
-    { "@type": "ListItem", position: 3, name: org.data.name, item: `${siteUrl}/organisations/${org.id}` },
+    { "@type": "ListItem", position: 2, name: "Member Organisations", item: `${siteUrl}/member-organisations` },
+    { "@type": "ListItem", position: 3, name: org.data.name, item: `${siteUrl}/member-organisations/${org.id}` },
   ],
 };
 
@@ -43,7 +43,7 @@ const logoUrl = org.data.logo || "";
       <!-- Breadcrumb -->
       <nav class="mb-8" aria-label="Breadcrumb">
         <ol class="flex items-center gap-2 text-sm text-white/30">
-          <li><a href="/organisations" class="hover:text-white/60 transition-colors">Organisations</a></li>
+          <li><a href="/member-organisations" class="hover:text-white/60 transition-colors">Member Organisations</a></li>
           <li aria-hidden="true">/</li>
           <li class="text-white/50 truncate max-w-[200px]">{org.data.abbreviation || org.data.name}</li>
         </ol>

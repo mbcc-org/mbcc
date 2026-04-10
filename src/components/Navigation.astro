@@ -2,8 +2,12 @@
 const navLinks = [
   { label: "Home", href: "/" },
   { label: "About", href: "/about" },
-  { label: "Organisations", href: "/organisations" },
   { label: "Events", href: "/events" },
+];
+
+const orgLinks = [
+  { label: "Member Organisations", href: "/member-organisations" },
+  { label: "Registered Organisations", href: "/registered-organisations" },
 ];
 
 const currentPath = Astro.url.pathname;
@@ -12,6 +16,11 @@ function isActive(href: string) {
   if (href === "/") return currentPath === "/";
   return currentPath.startsWith(href);
 }
+
+const isOrgsActive =
+  currentPath.startsWith("/member-organisations") ||
+  currentPath.startsWith("/registered-organisations") ||
+  currentPath.startsWith("/organisations");
 ---
 
 <!-- Buddhist flag color strip -->
@@ -25,7 +34,69 @@ function isActive(href: string) {
 
     <!-- Desktop nav -->
     <ul class="hidden md:flex items-center gap-8">
-      {navLinks.map((link) => (
+      {navLinks.slice(0, 2).map((link) => (
+        <li>
+          <a
+            href={link.href}
+            class:list={[
+              "text-sm font-medium tracking-widest uppercase transition-colors relative pb-1",
+              isActive(link.href)
+                ? "text-saffron-600 after:absolute after:bottom-0 after:left-0 after:right-0 after:h-0.5 after:bg-saffron-500"
+                : "text-charcoal-500 hover:text-saffron-600",
+            ]}
+            aria-current={isActive(link.href) ? "page" : undefined}
+          >
+            {link.label}
+          </a>
+        </li>
+      ))}
+
+      <!-- Organisations dropdown -->
+      <li class="relative" id="orgs-dropdown-item">
+        <button
+          id="orgs-dropdown-btn"
+          class:list={[
+            "text-sm font-medium tracking-widest uppercase transition-colors relative pb-1 inline-flex items-center gap-1 bg-transparent border-0 p-0 cursor-pointer",
+            isOrgsActive
+              ? "text-saffron-600 after:absolute after:bottom-0 after:left-0 after:right-0 after:h-0.5 after:bg-saffron-500"
+              : "text-charcoal-500 hover:text-saffron-600",
+          ]}
+          aria-expanded="false"
+          aria-haspopup="true"
+        >
+          Organisations
+          <svg id="orgs-chevron" class="w-3 h-3 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+          </svg>
+        </button>
+
+        <!-- Dropdown panel -->
+        <div
+          id="orgs-dropdown-panel"
+          class="absolute left-1/2 -translate-x-1/2 top-full mt-2 w-56 bg-white rounded-xl border border-cream-200 shadow-xl shadow-charcoal-900/10 overflow-hidden opacity-0 invisible translate-y-1 transition-all duration-200"
+          role="menu"
+        >
+          {orgLinks.map((link) => (
+            <a
+              href={link.href}
+              class:list={[
+                "flex items-center gap-2.5 px-4 py-3 text-sm transition-colors border-b border-cream-100 last:border-0",
+                isActive(link.href)
+                  ? "text-saffron-600 bg-saffron-50 font-medium"
+                  : "text-charcoal-600 hover:bg-cream-50 hover:text-saffron-600",
+              ]}
+              role="menuitem"
+            >
+              <svg class="w-3.5 h-3.5 text-saffron-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 21h19.5m-18-18v18m10.5-18v18m6-13.5V21M6.75 6.75h.75m-.75 3h.75m-.75 3h.75m3-6h.75m-.75 3h.75m-.75 3h.75M6.75 21v-3.375c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21M3 3h12m-.75 4.5H21m-3.75 3.75h.008v.008h-.008v-.008zm0 3h.008v.008h-.008v-.008zm0 3h.008v.008h-.008v-.008z" />
+              </svg>
+              {link.label}
+            </a>
+          ))}
+        </div>
+      </li>
+
+      {navLinks.slice(2).map((link) => (
         <li>
           <a
             href={link.href}
@@ -88,8 +159,45 @@ function isActive(href: string) {
     </svg>
 
     <nav aria-label="Mobile navigation">
-      <ul class="flex flex-col items-center gap-8">
-        {navLinks.map((link) => (
+      <ul class="flex flex-col items-center gap-6">
+        {navLinks.slice(0, 2).map((link) => (
+          <li>
+            <a
+              href={link.href}
+              class="text-white text-2xl font-semibold tracking-wide hover:text-saffron-300 transition-colors"
+            >
+              {link.label}
+            </a>
+          </li>
+        ))}
+
+        <!-- Organisations accordion -->
+        <li class="flex flex-col items-center gap-3">
+          <button
+            id="mobile-orgs-btn"
+            class="flex items-center gap-2 text-white text-2xl font-semibold tracking-wide hover:text-saffron-300 transition-colors"
+            aria-expanded="false"
+          >
+            Organisations
+            <svg id="mobile-orgs-chevron" class="w-5 h-5 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+            </svg>
+          </button>
+          <ul id="mobile-orgs-menu" class="hidden flex-col items-center gap-3 mt-1">
+            {orgLinks.map((link) => (
+              <li>
+                <a
+                  href={link.href}
+                  class="text-saffron-300 text-base font-medium tracking-wide hover:text-white transition-colors"
+                >
+                  {link.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </li>
+
+        {navLinks.slice(2).map((link) => (
           <li>
             <a
               href={link.href}
@@ -110,6 +218,7 @@ function isActive(href: string) {
 </div>
 
 <script>
+  // Mobile menu
   const btn = document.getElementById("mobile-menu-btn");
   const closeBtn = document.getElementById("mobile-menu-close");
   const menu = document.getElementById("mobile-menu");
@@ -137,5 +246,54 @@ function isActive(href: string) {
 
   document.addEventListener("keydown", (e) => {
     if (e.key === "Escape") closeMenu();
+  });
+
+  // Mobile orgs accordion
+  const mobileOrgsBtn = document.getElementById("mobile-orgs-btn");
+  const mobileOrgsMenu = document.getElementById("mobile-orgs-menu");
+  const mobileOrgsChevron = document.getElementById("mobile-orgs-chevron");
+
+  mobileOrgsBtn?.addEventListener("click", () => {
+    const expanded = mobileOrgsBtn.getAttribute("aria-expanded") === "true";
+    mobileOrgsBtn.setAttribute("aria-expanded", String(!expanded));
+    mobileOrgsMenu?.classList.toggle("hidden");
+    mobileOrgsMenu?.classList.toggle("flex");
+    mobileOrgsChevron?.classList.toggle("rotate-180");
+  });
+
+  // Desktop dropdown
+  const dropdownBtn = document.getElementById("orgs-dropdown-btn");
+  const dropdownPanel = document.getElementById("orgs-dropdown-panel");
+  const dropdownChevron = document.getElementById("orgs-chevron");
+  const dropdownItem = document.getElementById("orgs-dropdown-item");
+
+  function openDropdown() {
+    dropdownPanel?.classList.remove("opacity-0", "invisible", "translate-y-1");
+    dropdownPanel?.classList.add("opacity-100", "visible", "translate-y-0");
+    dropdownBtn?.setAttribute("aria-expanded", "true");
+    dropdownChevron?.classList.add("rotate-180");
+  }
+
+  function closeDropdown() {
+    dropdownPanel?.classList.add("opacity-0", "invisible", "translate-y-1");
+    dropdownPanel?.classList.remove("opacity-100", "visible", "translate-y-0");
+    dropdownBtn?.setAttribute("aria-expanded", "false");
+    dropdownChevron?.classList.remove("rotate-180");
+  }
+
+  dropdownItem?.addEventListener("mouseenter", openDropdown);
+  dropdownItem?.addEventListener("mouseleave", closeDropdown);
+
+  dropdownBtn?.addEventListener("click", () => {
+    const expanded = dropdownBtn.getAttribute("aria-expanded") === "true";
+    expanded ? closeDropdown() : openDropdown();
+  });
+
+  document.addEventListener("click", (e) => {
+    if (!dropdownItem?.contains(e.target as Node)) closeDropdown();
+  });
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") closeDropdown();
   });
 </script>

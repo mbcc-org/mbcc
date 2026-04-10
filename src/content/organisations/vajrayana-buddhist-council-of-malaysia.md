@@ -25,5 +25,5 @@ The Vajrayāna Buddhist Council of Malaysia (VBCM) is the national umbrella body
 
 - Dharma talks and teachings by Tibetan masters.
 - Inter-tradition events fostering unity among Nyingma, Kagyu, Sakya, and Gelug schools.
-- Cultural and spiritual programs marking anniversaries and special occasions.
+- Cultural and spiritual programmes marking anniversaries and special occasions.
 - Publications and outreach to promote understanding of Vajrayāna Buddhism.

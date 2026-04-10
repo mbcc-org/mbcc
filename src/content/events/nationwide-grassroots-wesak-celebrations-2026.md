@@ -1,10 +1,10 @@
 ---
 title: Nationwide Grassroots Wesak Celebrations 2026
 date: 2026-05-31
-location: Individual Buddhist organization, temple or vihara across the country
+location: Individual Buddhist organisation, temple or vihara across the country
 description: >-
   Registration for the Sambutan Hari Wesak 2026 Peringkat Akar Umbi is now
-  open. Every participating Buddhist organization, temple or vihara across
+  open. Every participating Buddhist organisation, temple or vihara across
   Malaysia will receive support from the Federal Government.
 thumbnail: /posters/nationwide-grassroots-wesak-celebrations-2026.jpeg
 registrationUrl: https://ibbn.net/events/JFEW5Wc4xQ8mKrybIhpp
@@ -101,7 +101,7 @@ To broaden community participation and foster inclusivity in the observance of W
 
 ## Support Mechanism
 
-In recognition of Wesak Day, every participating Buddhist organization, temple or vihara across Malaysia will receive support from the Federal Government. The grant amount will be determined and disbursed after the celebration, with each organization required to comply with the stipulated terms and conditions.
+In recognition of Wesak Day, every participating Buddhist organisation, temple or vihara across Malaysia will receive support from the Federal Government. The grant amount will be determined and disbursed after the celebration, with each organisation required to comply with the stipulated terms and conditions.
 
 ## Participation Guidelines
 
@@ -122,14 +122,14 @@ In recognition of Wesak Day, every participating Buddhist organization, temple o
 
 ## Important Notes
 
-> This registration form is intended to collect organizational, contact, and bank details for internal coordination and grant disbursement purposes only.
+> This registration form is intended to collect organisational, contact, and bank details for internal coordination and grant disbursement purposes only.
 >
 > All information submitted will be treated with strict confidentiality and will be accessed solely by authorized personnel.
 
 ## Event Details
 
 - **Date:** Sunday, 31 May 2026
-- **Location:** Individual Buddhist organization, temple or vihara across the country
+- **Location:** Individual Buddhist organisation, temple or vihara across the country
 
 ## For Enquiries
 
