@@ -25,28 +25,10 @@ registrationUrl: https://ibbn.net/events/iOv60xjo4ushuJgL1rw4
     }
   }
   .event-cta-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
     margin: 1.5rem 0;
-  }
-  .event-cta-btn {
-    display: inline-block;
-    width: 100%;
-    text-align: center;
-    padding: 0.75rem 1.5rem;
-    background-color: var(--color-saffron-600);
-    color: #ffffff !important;
-    font-weight: 600;
-    border-radius: 0.5rem;
-    text-decoration: none !important;
-    transition: background-color 0.2s;
-  }
-  .event-cta-btn:hover {
-    background-color: var(--color-saffron-700);
-    color: #ffffff !important;
-  }
-  @media (min-width: 640px) {
-    .event-cta-btn {
-      width: auto;
-    }
   }
   .event-clearfix::after {
     content: "";
@@ -64,6 +46,7 @@ registrationUrl: https://ibbn.net/events/iOv60xjo4ushuJgL1rw4
 <div class="event-cta-wrap">
   <a href="https://ibbn.net/events/iOv60xjo4ushuJgL1rw4" target="_blank" rel="noopener noreferrer" class="event-cta-btn">
     Register Now
+    <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"/></svg>
   </a>
 </div>
 
@@ -91,5 +74,6 @@ By coming together on 23 May 2026 (Saturday) from 8am to 5pm, this Conference se
 <div class="event-cta-wrap">
   <a href="https://ibbn.net/events/iOv60xjo4ushuJgL1rw4" target="_blank" rel="noopener noreferrer" class="event-cta-btn">
     Register Now
+    <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"/></svg>
   </a>
 </div>

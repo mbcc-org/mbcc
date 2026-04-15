@@ -114,17 +114,32 @@ const eventLd = {
           </div>
 
           {event.data.registrationUrl && (
-            <a
-              href={event.data.registrationUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              class="register-btn mt-6 inline-flex items-center gap-2 px-5 py-2.5 bg-saffron-500 hover:bg-saffron-400 text-white text-sm font-semibold rounded-lg transition-colors shadow-lg shadow-saffron-500/30 lg:self-start"
-            >
-              Register Now
-              <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"/>
-              </svg>
-            </a>
+            <div class="mt-6 flex flex-wrap gap-3 lg:self-start">
+              <a
+                href={event.data.registrationUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="register-btn event-header-btn flex items-center justify-center gap-2 px-5 py-2.5 bg-saffron-500 hover:bg-saffron-400 text-white text-sm font-semibold rounded-lg transition-colors shadow-lg shadow-saffron-500/30"
+              >
+                Register Now
+                <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"/>
+                </svg>
+              </a>
+              {event.id === "nationwide-grassroots-wesak-celebrations-2026" && (
+                <a
+                  href="https://ibbn.net/events/JFEW5Wc4xQ8mKrybIhpp/check-registration"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="event-header-btn flex items-center justify-center gap-2 px-5 py-2.5 bg-saffron-500 hover:bg-saffron-400 text-white text-sm font-semibold rounded-lg transition-colors shadow-lg shadow-saffron-500/30"
+                >
+                  Check Status
+                  <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"/>
+                  </svg>
+                </a>
+              )}
+            </div>
           )}
         </div>
       </div>
@@ -139,6 +154,18 @@ const eventLd = {
         <!-- Main content -->
         <div>
           <style is:global>
+            .event-header-btn {
+              width: 100%;
+            }
+            @media (min-width: 640px) {
+              .event-header-btn { width: auto; }
+            }
+            @media (min-width: 768px) {
+              .event-header-btn { flex: 1 1 0%; }
+            }
+            @media (min-width: 1024px) {
+              .event-header-btn { flex: 0 0 auto; width: auto; }
+            }
             @media (prefers-reduced-motion: no-preference) {
               @keyframes pulse-ring {
                 0%   { box-shadow: 0 0 0 0 rgba(245,158,11,0.6), 0 0 0 0 rgba(255,255,255,0.3); }
@@ -288,17 +315,29 @@ const eventLd = {
             </div>
 
             {event.data.registrationUrl && (
-              <a
-                href={event.data.registrationUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                class="register-btn flex items-center justify-center gap-2 w-full px-5 py-4 bg-saffron-500 hover:bg-saffron-400 text-white text-base font-bold rounded-xl transition-all duration-150 shadow-lg shadow-saffron-500/30 hover:shadow-saffron-400/40 hover:scale-[1.02]"
-              >
-                <svg class="w-4 h-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 6v.75m0 3v.75m0 3v.75m0 3V18m-9-5.25h5.25M7.5 15h3M3.375 5.25c-.621 0-1.125.504-1.125 1.125v3.026a2.999 2.999 0 010 5.198v3.026c0 .621.504 1.125 1.125 1.125h17.25c.621 0 1.125-.504 1.125-1.125v-3.026a2.999 2.999 0 010-5.198V6.375c0-.621-.504-1.125-1.125-1.125H3.375z"/>
-                </svg>
-                Register Now
-              </a>
+              <div class="flex flex-col gap-3">
+                <a
+                  href={event.data.registrationUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="register-btn flex items-center justify-center gap-2 w-full px-5 py-4 bg-saffron-500 hover:bg-saffron-400 text-white text-base font-bold rounded-xl transition-all duration-150 shadow-lg shadow-saffron-500/30 hover:shadow-saffron-400/40 hover:scale-[1.02]"
+                >
+                  <svg class="w-4 h-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 6v.75m0 3v.75m0 3v.75m0 3V18m-9-5.25h5.25M7.5 15h3M3.375 5.25c-.621 0-1.125.504-1.125 1.125v3.026a2.999 2.999 0 010 5.198v3.026c0 .621.504 1.125 1.125 1.125h17.25c.621 0 1.125-.504 1.125-1.125v-3.026a2.999 2.999 0 010-5.198V6.375c0-.621-.504-1.125-1.125-1.125H3.375z"/>
+                  </svg>
+                  Register Now
+                </a>
+                {event.id === "nationwide-grassroots-wesak-celebrations-2026" && (
+                  <a
+                    href="https://ibbn.net/events/JFEW5Wc4xQ8mKrybIhpp/check-registration"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="flex items-center justify-center gap-2 w-full px-5 py-4 bg-saffron-500 hover:bg-saffron-400 text-white text-base font-bold rounded-xl transition-all duration-150 shadow-lg shadow-saffron-500/30 hover:shadow-saffron-400/40 hover:scale-[1.02]"
+                  >
+                    Check Status
+                  </a>
+                )}
+              </div>
             )}
 
 

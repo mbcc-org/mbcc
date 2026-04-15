@@ -125,28 +125,16 @@ const breadcrumbLd = {
         <p class="mt-2 text-[10px] sm:text-xs font-semibold tracking-[0.25em] uppercase text-white/70">Celebrating Together Across Malaysia</p>
       </div>
 
-      <!-- Desktop pills -->
-      <div class="hidden sm:flex items-center justify-center gap-3 flex-wrap">
-        <a href="/events/national-wesak-conference-2026" class="inline-flex items-center gap-3 px-6 py-2.5 rounded-full hover:scale-105 transition-all duration-150" style="background: rgba(22,10,2,0.72); backdrop-filter: blur(6px); box-shadow: 0 2px 12px rgba(0,0,0,0.25);">
-          <span class="text-sm font-semibold text-white">Conference</span>
-          <span class="text-xs font-bold text-amber-300" style="letter-spacing:0.03em;">23 May</span>
+      <!-- Event pills -->
+      <div class="flex items-center justify-center gap-3 flex-wrap">
+        <a href="/events/national-wesak-conference-2026" class="inline-flex flex-col sm:flex-row items-center gap-0.5 sm:gap-3 px-5 sm:px-6 py-2 sm:py-2.5 rounded-full hover:scale-105 transition-all duration-150" style="background: rgba(22,10,2,0.72); backdrop-filter: blur(6px); box-shadow: 0 2px 12px rgba(0,0,0,0.25);">
+          <span class="text-xs sm:text-sm font-semibold text-white">Conference</span>
+          <span class="text-[10px] sm:text-xs font-bold text-amber-300" style="letter-spacing:0.03em;">23 May</span>
         </a>
         <span class="text-white/20 text-sm select-none" aria-hidden="true">◇</span>
-        <a href="/events/nationwide-grassroots-wesak-celebrations-2026" class="inline-flex items-center gap-3 px-6 py-2.5 rounded-full hover:scale-105 transition-all duration-150" style="background: rgba(22,10,2,0.72); backdrop-filter: blur(6px); box-shadow: 0 2px 12px rgba(0,0,0,0.25);">
-          <span class="text-sm font-semibold text-white">Celebrations</span>
-          <span class="text-xs font-bold text-amber-300" style="letter-spacing:0.03em;">31 May</span>
-        </a>
-      </div>
-
-      <!-- Mobile pills -->
-      <div class="sm:hidden flex gap-2.5 justify-center">
-        <a href="/events/national-wesak-conference-2026" class="inline-flex items-center gap-2 px-4 py-2 rounded-full transition-colors" style="background: rgba(22,10,2,0.72); backdrop-filter: blur(6px);">
-          <span class="text-xs font-semibold text-white">Conference</span>
-          <span class="text-[10px] font-bold text-amber-300">23 May</span>
-        </a>
-        <a href="/events/nationwide-grassroots-wesak-celebrations-2026" class="inline-flex items-center gap-2 px-4 py-2 rounded-full transition-colors" style="background: rgba(22,10,2,0.72); backdrop-filter: blur(6px);">
-          <span class="text-xs font-semibold text-white">Celebrations</span>
-          <span class="text-[10px] font-bold text-amber-300">31 May</span>
+        <a href="/events/nationwide-grassroots-wesak-celebrations-2026" class="inline-flex flex-col sm:flex-row items-center gap-0.5 sm:gap-3 px-5 sm:px-6 py-2 sm:py-2.5 rounded-full hover:scale-105 transition-all duration-150" style="background: rgba(22,10,2,0.72); backdrop-filter: blur(6px); box-shadow: 0 2px 12px rgba(0,0,0,0.25);">
+          <span class="text-xs sm:text-sm font-semibold text-white">Celebrations</span>
+          <span class="text-[10px] sm:text-xs font-bold text-amber-300" style="letter-spacing:0.03em;">31 May</span>
         </a>
       </div>
     </div>
@@ -244,39 +232,6 @@ const breadcrumbLd = {
     </div>
   </section>
 
-  <!-- Registered Organisations Section -->
-  <section class="py-10 sm:py-14 bg-cream-50">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6">
-        <div class="max-w-xl">
-          <!-- Decorative lotus -->
-          <svg class="w-12 h-7 mb-3 text-saffron-400/60" viewBox="0 0 40 24" fill="currentColor" aria-hidden="true">
-            <ellipse cx="20" cy="11" rx="3.5" ry="9" opacity="0.55"/>
-            <ellipse cx="20" cy="11" rx="3.2" ry="8" transform="rotate(-28 20 18)" opacity="0.4"/>
-            <ellipse cx="20" cy="11" rx="3.2" ry="8" transform="rotate(28 20 18)" opacity="0.4"/>
-            <ellipse cx="20" cy="11" rx="2.8" ry="7" transform="rotate(-52 20 18)" opacity="0.25"/>
-            <ellipse cx="20" cy="11" rx="2.8" ry="7" transform="rotate(52 20 18)" opacity="0.25"/>
-          </svg>
-          <h2 class="text-2xl sm:text-3xl font-bold text-charcoal-800">
-            Registered Organisations
-          </h2>
-          <p class="mt-3 text-charcoal-500 leading-relaxed">
-            Browse the full list of Buddhist organisations across Malaysia that have registered with MBCC for Wesak 2026 grassroots celebrations.
-          </p>
-        </div>
-        <a
-          href="/registered-organisations"
-          class="inline-flex items-center gap-2 px-6 py-3 bg-saffron-500 hover:bg-saffron-400 text-white text-sm font-semibold rounded-lg transition-colors shadow-lg shadow-saffron-500/20 shrink-0"
-        >
-          View All Registered Organisations
-          <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3" />
-          </svg>
-        </a>
-      </div>
-    </div>
-  </section>
-
   <!-- Stats Strip -->
   <section class="relative overflow-hidden bg-charcoal-800">
     <div class="absolute inset-0 pointer-events-none" aria-hidden="true">
@@ -284,7 +239,7 @@ const breadcrumbLd = {
     </div>
     <div class="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid grid-cols-1 lg:grid-cols-3 divide-y lg:divide-y-0 lg:divide-x divide-white/10 py-2 lg:py-0">
-        <StatCounter value="600+" label="Buddhist Organisations" icon="temple" href="/registered-organisations" />
+        <StatCounter value="600+" label="Buddhist Organisations" icon="temple" />
         <StatCounter value="600,000" label="Registered Members" icon="people" />
         <StatCounter value="5.4M" label="Buddhists in Malaysia" icon="lotus" />
       </div>

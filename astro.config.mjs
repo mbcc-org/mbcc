@@ -9,7 +9,11 @@ export default defineConfig({
     "/organisations": "/member-organisations",
     "/organisations/[slug]": "/member-organisations/[slug]",
   },
-  integrations: [sitemap()],
+  integrations: [
+    sitemap({
+      filter: (page) => !page.includes("/registered-organisations"),
+    }),
+  ],
   vite: {
     plugins: [tailwindcss()],
   },

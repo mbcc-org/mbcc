@@ -7,7 +7,6 @@ const navLinks = [
 
 const orgLinks = [
   { label: "Member Organisations", href: "/member-organisations" },
-  { label: "Registered Organisations", href: "/registered-organisations" },
 ];
 
 const currentPath = Astro.url.pathname;
@@ -19,7 +18,6 @@ function isActive(href: string) {
 
 const isOrgsActive =
   currentPath.startsWith("/member-organisations") ||
-  currentPath.startsWith("/registered-organisations") ||
   currentPath.startsWith("/organisations");
 ---
 

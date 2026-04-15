@@ -145,3 +145,15 @@ body {
 .prose strong {
   color: var(--color-charcoal-700);
 }
+
+/* Shared event CTA button — matches the header Register Now / Check Status buttons */
+.event-cta-btn {
+  @apply inline-flex items-center justify-center gap-2 px-5 py-2.5 text-sm font-semibold rounded-lg bg-saffron-500 transition-colors shadow-lg shadow-saffron-500/30;
+  flex: 1 1 10rem;
+  color: #ffffff !important;
+  text-decoration: none !important;
+}
+.event-cta-btn:hover {
+  @apply bg-saffron-400;
+  color: #ffffff !important;
+}
