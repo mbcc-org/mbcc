@@ -61,6 +61,47 @@ registrationUrl: https://ibbn.net/events/JFEW5Wc4xQ8mKrybIhpp
     display: table;
     clear: both;
   }
+  .event-promo-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    align-items: stretch;
+    margin: 1.25rem 0;
+  }
+  .event-promo-col {
+    display: flex;
+    flex-direction: column;
+  }
+  .event-promo-img-wrap {
+    display: block;
+    margin-bottom: 0.75rem;
+  }
+  .event-promo-img-wrap img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 0.5rem;
+  }
+  .event-promo-meta {
+    margin-top: auto;
+  }
+  .event-promo-meta .event-cta-btn {
+    display: inline-flex !important;
+  }
+  .event-promo-caption {
+    margin: 0 0 0.5rem 0;
+    font-weight: 500;
+    font-size: 0.9375rem;
+    color: var(--color-charcoal-700);
+  }
+  @media (max-width: 640px) {
+    .event-promo-grid {
+      grid-template-columns: 1fr;
+    }
+    .event-promo-meta {
+      margin-top: 0;
+    }
+  }
 </style>
 
 <div class="event-poster-wrap">
@@ -111,35 +152,32 @@ In recognition of Wesak Day, every participating Buddhist organisation, temple o
 
 Download the official Wesak 2026 poster and bunting to promote your grassroots celebration.
 
-<a href="/files/nationwide-grassroots-wesak-celebrations-2026-poster.pdf" class="event-download-card" target="_blank" rel="noopener noreferrer">
-  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
-    <polyline points="14 2 14 8 20 8"/>
-    <line x1="12" y1="18" x2="12" y2="12"/>
-    <line x1="9" y1="15" x2="15" y2="15"/>
-  </svg>
-  <span>Wesak 2026 Poster (PDF, 20 MB)</span>
-  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
-    <polyline points="7 10 12 15 17 10"/>
-    <line x1="12" y1="15" x2="12" y2="3"/>
-  </svg>
-</a>
-
-<a href="/files/nationwide-grassroots-wesak-celebrations-2026-bunting.pdf" class="event-download-card" target="_blank" rel="noopener noreferrer">
-  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
-    <polyline points="14 2 14 8 20 8"/>
-    <line x1="12" y1="18" x2="12" y2="12"/>
-    <line x1="9" y1="15" x2="15" y2="15"/>
-  </svg>
-  <span>Wesak 2026 Bunting (PDF, 12 MB)</span>
-  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
-    <polyline points="7 10 12 15 17 10"/>
-    <line x1="12" y1="15" x2="12" y2="3"/>
-  </svg>
-</a>
+<div class="event-promo-grid">
+  <div class="event-promo-col">
+    <a href="/images/nationwide-grassroots-wesak-celebrations-2026-poster.jpeg" class="glightbox event-promo-img-wrap">
+      <img src="/images/nationwide-grassroots-wesak-celebrations-2026-poster.jpeg" alt="Wesak 2026 Poster" />
+    </a>
+    <div class="event-promo-meta">
+      <p class="event-promo-caption">Wesak 2026 Poster</p>
+      <a href="/files/nationwide-grassroots-wesak-celebrations-2026-poster.pdf" target="_blank" rel="noopener noreferrer" class="event-cta-btn">
+        Download PDF (20 MB)
+        <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"/></svg>
+      </a>
+    </div>
+  </div>
+  <div class="event-promo-col">
+    <a href="/images/nationwide-grassroots-wesak-celebrations-2026-bunting.jpeg" class="glightbox event-promo-img-wrap">
+      <img src="/images/nationwide-grassroots-wesak-celebrations-2026-bunting.jpeg" alt="Wesak 2026 Bunting" />
+    </a>
+    <div class="event-promo-meta">
+      <p class="event-promo-caption">Wesak 2026 Bunting</p>
+      <a href="/files/nationwide-grassroots-wesak-celebrations-2026-bunting.pdf" target="_blank" rel="noopener noreferrer" class="event-cta-btn">
+        Download PDF (12 MB)
+        <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"/></svg>
+      </a>
+    </div>
+  </div>
+</div>
 
 Grassroots organisations who wish to print additional copies are warmly invited to email [wesak.mbcc@gmail.com](mailto:wesak.mbcc@gmail.com) to request the HD versions of the poster and bunting.
 
