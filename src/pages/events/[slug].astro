@@ -2,6 +2,7 @@
 import { getCollection, render } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import PhotoGallery from "../../components/PhotoGallery.astro";
+import GuestSpeakers from "../../components/GuestSpeakers.astro";
 import { getImageUrl } from "../../lib/image";
 
 export async function getStaticPaths() {
@@ -250,6 +251,26 @@ const eventLd = {
             document.addEventListener("astro:page-load", initLightbox);
             initLightbox();
           </script>
+
+          {event.id === "national-wesak-conference-2026" && (
+            <div class="mt-8">
+              <h2 class="text-lg font-bold text-charcoal-800 mb-6 pb-3 border-b border-cream-200" style="margin-top: 2em;">Guest Speakers</h2>
+              <GuestSpeakers />
+              <h2 class="text-lg font-bold text-charcoal-800 mb-4 pb-3 border-b border-cream-200" style="margin-top: 2em;">For Enquiries</h2>
+              <ul class="list-disc pl-6 space-y-1 text-charcoal-600 text-base leading-relaxed">
+                <li>Wong Tin Song</li>
+                <li><a href="mailto:wesak.mbcc@gmail.com" class="text-saffron-600 underline underline-offset-2 hover:text-saffron-700">wesak.mbcc@gmail.com</a></li>
+                <li><a href="tel:+601161700123" class="text-saffron-600 underline underline-offset-2 hover:text-saffron-700">+601161700123</a></li>
+              </ul>
+              <div class="event-clearfix"></div>
+              <div class="event-cta-wrap">
+                <a href="https://ibbn.net/events/iOv60xjo4ushuJgL1rw4" target="_blank" rel="noopener noreferrer" class="event-cta-btn">
+                  Register Now
+                  <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"/></svg>
+                </a>
+              </div>
+            </div>
+          )}
 
           {event.data.photos && event.data.photos.length > 0 && (
             <div class="mt-14">
