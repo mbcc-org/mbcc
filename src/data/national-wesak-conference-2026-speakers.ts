@@ -20,18 +20,6 @@ As a committed practitioner, he has long championed the integration of Buddhist 
 Her vision extends beyond the monastery walls: she is a tireless advocate for Buddhist values in social life and has initiated numerous charitable programmes in education, healthcare, and community relief. Her teachings emphasise wisdom, compassion, and the practical application of Dharma in everyday life.`,
   },
   {
-    name: "His Eminence The 14th Siling Tongkhor Rinpoche",
-    photo: "/speakers/siling-tongkhor-rinpoche.png",
-    bio: `**Recognition:**
-His Eminence The 14th Siling Tongkhor Rinpoche was recognised and enthroned as the authentic incarnation of the previous Siling Tongkhor Rinpoche in accordance with the traditions of Tibetan Buddhism.
-
-**Education & Training:**
-Rinpoche received his monastic education at one of the great seats of Tibetan Buddhist learning, studying under eminent teachers across the philosophical and contemplative disciplines of the Vajrayana tradition. His training encompasses the full scope of sutra and tantra.
-
-**Current Activities:**
-Rinpoche actively teaches across Asia, guiding students through the profound path of Vajrayana Buddhism. His teachings blend rigorous scholarship with compassionate guidance, making the wisdom of Tibetan Buddhism accessible to practitioners of all backgrounds.`,
-  },
-  {
     name: "Venerable Ming Ji",
     photo: "/speakers/ven-ming-ji.jpeg",
     bio: `- Ordained into the Buddhist Sangha under a senior preceptor, beginning a lifelong commitment to monastic discipline and Dharma study

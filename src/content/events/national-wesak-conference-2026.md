@@ -65,9 +65,9 @@ By coming together on 23 May 2026 (Saturday) from 8am to 5pm, this Conference se
 
 ## Program Schedule
 
-<a href="/images/nationwide-grassroots-wesak-celebrations-2026-conference-schedule.jpg" class="glightbox block">
+<a href="/images/nationwide-grassroots-wesak-celebrations-2026-conference-schedule-updated.jpeg" class="glightbox block">
   <img
-    src="/images/nationwide-grassroots-wesak-celebrations-2026-conference-schedule.jpg"
+    src="/images/nationwide-grassroots-wesak-celebrations-2026-conference-schedule-updated.jpeg"
     alt="National Wesak Conference 2026 — Program Schedule for 23 May 2026, 08:00–17:00"
     style="width: 100%; border-radius: 0.5rem;"
     loading="lazy"
